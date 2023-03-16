@@ -2,6 +2,11 @@ package mx.com.team9.models
 
 const val PASSWORD_LENGHT = 10
 class User(name: String,password: String) {
+    /**
+     * Clase que representa a un usuario
+     * @param name Nombre del usuario
+     * @param password Contraseña del usuario
+     */
 
     init {
         println("El usuario $name ha ingresado")
