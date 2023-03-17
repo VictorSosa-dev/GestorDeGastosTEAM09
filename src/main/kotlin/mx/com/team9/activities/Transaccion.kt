@@ -1,3 +1,8 @@
+package mx.com.team9.activities
+
+import mx.com.team9.dataclase.Categoria
+import mx.com.team9.models.Cuenta
+import mx.com.team9.utils.TipoMovimiento
 import java.time.LocalDateTime
 /*
  * Clase abstracta que representa una transacción de una cuenta
@@ -5,8 +10,8 @@ import java.time.LocalDateTime
  *  - Fecha de la transacción
  *  - Monto de la transacción
  *  - Descripcion de la transaccion
- *  - Categoria de la transaccion
- *  - Cuenta de origen asociada a la transaccion
+ *  - mx.com.team9.enums.Categoria de la transaccion
+ *  - mx.com.team9.models.Cuenta de origen asociada a la transaccion
  */
 abstract class Transaccion {
     abstract val fecha: LocalDateTime
@@ -14,8 +19,11 @@ abstract class Transaccion {
     abstract val descripcion: String
     abstract val cuentaOrigen: Cuenta
     abstract val categoria: Categoria
+    abstract val tipo: TipoMovimiento
 
-    fun logTransaccion() {
+    abstract fun movimiento(monto: Double ,cuenta: Cuenta, tipo: TipoMovimiento, descripcion: String, categoria: Categoria)
+
+    open fun logTransaccion() {
         println("Se ha realizado una transaccion de $monto en la cuenta {cuentaOrigen.numeroCuenta} con la categoria ${categoria.nombre}")
     }
 }
