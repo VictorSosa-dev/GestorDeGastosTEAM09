@@ -17,13 +17,24 @@ abstract class Transaccion {
     abstract val fecha: LocalDateTime
     abstract val monto: Double
     abstract val descripcion: String
-    abstract val cuentaOrigen: Cuenta
     abstract val categoria: Categoria
-    abstract val tipo: TipoMovimiento
+    abstract val cuentaOrigen: Cuenta
+    /*
+    @Victor: Tambien pense en una funcion abstracta que se encargara de realizar el movimiento
+     pero no serviria mucho al momento de implementar las funciones en las clases Deposito y Retiro
+     Podriamos comentarlo en al session de hoy:
+        1) tener la clase abstracta con la funcion abstracta movimientos, y que se implemente en
+            cada clase Deposito y Retiro
+        2) Tener la clase Transaccion, y tener interfaces llamadas Deposito, Retiro que agreguen la
+        funcion deposito y retiro  respectivamente.
+     */
 
-    abstract fun movimiento(monto: Double ,cuenta: Cuenta, tipo: TipoMovimiento, descripcion: String, categoria: Categoria)
+    //abstract fun movimiento(monto: Double ,cuenta: Cuenta, tipo: TipoMovimiento, descripcion: String, categoria: Categoria)
 
-    open fun logTransaccion() {
+    /**
+     * Funcion que imprime en consola la transaccion realizada
+     */
+    fun logTransaccion() {
         println("Se ha realizado una transaccion de $monto en la cuenta {cuentaOrigen.numeroCuenta} con la categoria ${categoria.nombre}")
     }
 }
