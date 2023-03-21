@@ -1,7 +1,14 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import mx.com.team9.utils.Menu
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main(args: Array<String>) {
+
+    //Aqui se ejectuara el programa principal y se instanciaran las principales clases
+
+    //Mostrar menu de autenticacion
+
+    //Menu de operacion de cuenta
+
+    val menu = Menu()
+    menu.showMenu()
+
 }
