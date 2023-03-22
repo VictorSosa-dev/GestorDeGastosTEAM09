@@ -4,10 +4,12 @@ import mx.com.team9.dataclase.Categoria
 import mx.com.team9.models.Cuenta
 import mx.com.team9.utils.TipoMovimiento
 import java.time.LocalDateTime
-
-class Deposito : Transaccion() {
+/**
+ * Clase que representa un retiro de una cuenta
+ */
+class Gasto : Movimiento() {
     override val fecha: LocalDateTime
-        get() = TODO("Se podria obtener la fecha de forma automatica")
+        get() = TODO("Not yet implemented")
     override val monto: Double
         get() = TODO("Not yet implemented")
     override val descripcion: String
@@ -26,10 +28,8 @@ class Deposito : Transaccion() {
         descripcion: String,
         categoria: Categoria
     ) {
-        TODO("Not yet implemented")
+        cuenta.saldo -= monto
     }
 
-    override fun logTransaccion() {
-        println("Se ha realizado un deposito de $monto en la cuenta {cuentaOrigen.numeroCuenta} con la categoria ${categoria.nombre}")
-    }
+
 }

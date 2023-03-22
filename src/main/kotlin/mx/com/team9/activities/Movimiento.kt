@@ -13,17 +13,17 @@ import java.time.LocalDateTime
  *  - mx.com.team9.enums.Categoria de la transaccion
  *  - mx.com.team9.models.Cuenta de origen asociada a la transaccion
  */
-abstract class Transaccion {
+abstract class Movimiento {
     abstract val fecha: LocalDateTime
     abstract val monto: Double
-    abstract val descripcion: String
     abstract val cuentaOrigen: Cuenta
+    abstract val descripcion: String
     abstract val categoria: Categoria
     abstract val tipo: TipoMovimiento
 
     abstract fun movimiento(monto: Double ,cuenta: Cuenta, tipo: TipoMovimiento, descripcion: String, categoria: Categoria)
 
-    open fun logTransaccion() {
+    open fun logMovimientos() {
         println("Se ha realizado una transaccion de $monto en la cuenta {cuentaOrigen.numeroCuenta} con la categoria ${categoria.nombre}")
     }
 }

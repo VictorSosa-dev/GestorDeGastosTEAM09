@@ -1,13 +1,12 @@
 package mx.com.team9.utils
 
-import mx.com.team9.models.Cuenta
-import mx.com.team9.models.User
+import mx.com.team9.models.Usuario
 
 class Menu(){
 
-    private val listOfUser = mutableListOf<User>()
+    val listaDeUsuarios = mutableListOf<Usuario>()
 
-    fun showMenu() {
+    fun MostrarMenu() {
         println("+".repeat(60))
         println("+              BIENVENIDO A TU GESTOR DE GASTOS            +")
         println("+                        AUTHOR TEAM 9                     +")
@@ -27,8 +26,8 @@ class Menu(){
             // evitar que el usuario ingrese un valor no numerico
             val opc = readLine()?.toIntOrNull() ?: 0
             when (opc) {
-                1 -> login()
-                2 -> singIn()
+                1 -> ingresar()
+                2 -> registrarse()
                 3 -> _salida = true
                 else -> println(" $opc ->>> no es una opción valida :(")
             }
@@ -38,21 +37,32 @@ class Menu(){
     }
 
     // login
-    private fun login(){
+    private fun ingresar(){
         println("Ingresa tu email:")
         val email = readLine().toString()
         println("Ingresa tu contraseña:")
         val password = readln().toString()
         // Validar si el usuario ya existe
-        val existe = listOfUser.find { it.getEmail() == email }
-        if (existe == null){
-            println("El usuario $email no existe")
-            return
+        val usuario = listaDeUsuarios.find { it.getEmail() == email }
+        if (usuario != null){
+            if (usuario.validatePassword(password)){
+                // se muestra el menu de operaciones para el usuario
+                // para evitar tener todo aqui puedes crear una funcion una
+                // en otro archivo y llamarla aqui para las operaciones del usuario
+                // tambien se debe crear la cuenta del usuario
+                mostrarMenuOperaciones(usuario.getName())
+            } else {
+                println("Contraseña incorrecta")
+            }
+        } else {
+            println("El usuario no existe")
         }
+
     }
 
     // sing in
-    private fun singIn(){
+    private fun registrarse() {
+        val u1 = Usuario()
         // Crear usuario
         println("Ingresa tu usuario:")
         val usuario= readLine().toString()
@@ -60,17 +70,21 @@ class Menu(){
         val email = readLine().toString()
         println("Ingresa tu contraseña:")
         val password = readLine().toString()
-        val u1 = User(usuario, email, password)
+        u1.crearUsuario(usuario, email, password)
         // Validar si el usuario ya existe
-        val existe = listOfUser.find { it.getEmail() == email }
+        val existe = listaDeUsuarios.find { it.getEmail() == email }
         if (existe != null){
-            println("El usuario $usuario ya existe")
+            println("El usuario $usuario ya existe inicia sesión")
             return
         }
-        listOfUser.add(u1)
+        // Pedir la cantidad de dinero que tiene el usuario
+        // Se crea la cuenta del usuario
+        listaDeUsuarios.add(u1)
+        // Luego mostrar el menu de operaciones por ejemplo
+        // agregar gasto, agregar ingreso, ver gastos, ver ingreso
+
 
     }
-
 
     private fun mostrarMenuOperaciones(usuario: String){
         println("+".repeat(60))
@@ -78,4 +92,5 @@ class Menu(){
         println("+                        AUTHOR TEAM 9                    +")
         println("+".repeat(60))
     }
+
 }

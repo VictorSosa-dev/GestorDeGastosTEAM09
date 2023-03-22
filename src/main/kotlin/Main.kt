@@ -9,6 +9,6 @@ fun main(args: Array<String>) {
     //Menu de operacion de cuenta
 
     val menu = Menu()
-    menu.showMenu()
+    menu.MostrarMenu()
 
 }
