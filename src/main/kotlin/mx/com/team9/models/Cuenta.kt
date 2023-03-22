@@ -1,6 +1,7 @@
 package mx.com.team9.models
 
 import mx.com.team9.activities.Transaccion
+import java.time.LocalDateTime
 import java.util.Date
 
 /*  mx.com.team9.models.Cuenta.kt tendra los atributos para poder manejar las cuentas de los usuarios y las
@@ -36,15 +37,18 @@ class Cuenta(
     val numeroCuenta: String,
     var saldo: Double,
     val tipoCuenta: String,
-    val fechaCreacion: Date,
-    val fechaModificacion: Date,
-    val fechaEliminacion: Date,
     val estadoCuenta: String,
     val usuario: User,
-    val transacciones: MutableList<Transaccion>
+    val transacciones: MutableList<Transaccion>?
 ) {
+    lateinit var  fechaCreacion: LocalDateTime
+
+    lateinit var fechaModificacion: LocalDateTime
+
+    lateinit var fechaEliminacion: LocalDateTime
 
     init {
+        fechaCreacion = LocalDateTime.now()
         println("Se ha creado la cuenta $numeroCuenta")
         saldo = 0.0
     }

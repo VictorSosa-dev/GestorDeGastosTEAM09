@@ -4,6 +4,8 @@ import mx.com.team9.dataclase.Categoria
 import mx.com.team9.models.Cuenta
 import mx.com.team9.utils.TipoMovimiento
 import java.time.LocalDateTime
+import java.util.*
+
 /*
  * Clase abstracta que representa una transacción de una cuenta
  * Esta contiene atributos como:
@@ -14,11 +16,17 @@ import java.time.LocalDateTime
  *  - mx.com.team9.models.Cuenta de origen asociada a la transaccion
  */
 abstract class Transaccion {
-    abstract val fecha: LocalDateTime
+
     abstract val monto: Double
     abstract val descripcion: String
     abstract val categoria: Categoria
     abstract val cuentaOrigen: Cuenta
+    val id: String
+        get() = UUID.randomUUID().toString()
+
+    val fecha: LocalDateTime
+        get() = LocalDateTime.now()
+
     /*
     @Victor: Tambien pense en una funcion abstracta que se encargara de realizar el movimiento
      pero no serviria mucho al momento de implementar las funciones en las clases Deposito y Retiro
@@ -29,7 +37,7 @@ abstract class Transaccion {
         funcion deposito y retiro  respectivamente.
      */
 
-    //abstract fun movimiento(monto: Double ,cuenta: Cuenta, tipo: TipoMovimiento, descripcion: String, categoria: Categoria)
+//    abstract fun movimiento(monto: Double ,cuenta: Cuenta, tipo: TipoMovimiento, descripcion: String, categoria: Categoria)
 
     /**
      * Funcion que imprime en consola la transaccion realizada

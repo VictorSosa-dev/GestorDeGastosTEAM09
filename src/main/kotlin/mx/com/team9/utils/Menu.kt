@@ -48,6 +48,13 @@ class Menu(){
         if (existe == null){
             println("El usuario $email no existe")
             return
+        } else {
+            if (existe.validatePassword(password)){
+                println("Ingresaste correctamente")
+                // Mostrar un menu de acceso de cuenta
+            } else {
+                println("Contraseña incorrecta")
+            }
         }
     }
 

@@ -11,9 +11,6 @@ class Deposito(
     override val categoria: Categoria,
     override val cuentaOrigen: Cuenta
 ) : Transaccion() {
-    override val fecha: LocalDateTime
-        get() = LocalDateTime.now()
-
     init {
         cuentaOrigen.saldo += monto
         logTransaccion()
