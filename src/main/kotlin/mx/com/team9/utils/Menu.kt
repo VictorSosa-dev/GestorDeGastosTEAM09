@@ -1,6 +1,6 @@
 package mx.com.team9.utils
 
-import mx.com.team9.models.Usuario
+import mx.com.team9.activities.Usuario
 
 class Menu(){
 

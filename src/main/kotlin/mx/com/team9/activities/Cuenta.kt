@@ -1,7 +1,7 @@
 package mx.com.team9.activities
 
-import mx.com.team9.activities.Transaccion
-import java.util.Date
+import java.time.LocalDateTime
+import java.util.*
 
 /*  mx.com.team9.models.Cuenta.kt tendra los atributos para poder manejar las cuentas de los usuarios y las
     operaciones que se pueden realizar en ellas.
@@ -29,23 +29,19 @@ import java.util.Date
     - Consulta de fecha de eliminacion
     - Consulta de tipo de cuenta
     - Consulta de usuario
+    */
+
 
 class Cuenta(
     val idCuenta: String,
     var saldo: Double,
     val tipoCuenta: String,
-    val fechaCreacion: Date,
-    val fechaModificacion: Date,
-    val fechaEliminacion: Date,
     val estadoCuenta: String,
-    val usuario: User,
-    val transacciones: MutableList<Transaccion>
+    val usuario: Usuario,
+    val transacciones: MutableList<Movimiento>?
 ) {
-    lateinit var  fechaCreacion: LocalDateTime
+    lateinit var fechaCreacion: LocalDateTime
 
-    lateinit var fechaModificacion: LocalDateTime
-
-    lateinit var fechaEliminacion: LocalDateTime
 
     init {
         fechaCreacion = LocalDateTime.now()
@@ -55,11 +51,6 @@ class Cuenta(
 
     fun consultaSaldo() {
         println("El saldo de la cuenta es: $saldo")
-    }
-
-    fun crearCuenta(usuario: Usuario) {
-        val cuenta = Cuenta(UUID.randomUUID().toString(), saldo, Date(), usuario, mutableListOf())
-        usuario.cuentas.add(cuenta)
     }
 
 }
