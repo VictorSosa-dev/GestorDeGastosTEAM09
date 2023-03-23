@@ -1,4 +1,4 @@
-package mx.com.team9.dataclase
+package mx.com.team9.models
 
 import mx.com.team9.utils.TipoCategoria
 

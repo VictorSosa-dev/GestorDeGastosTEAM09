@@ -1,7 +1,6 @@
 package mx.com.team9.utils
 
-import mx.com.team9.models.Cuenta
-import mx.com.team9.models.User
+import mx.com.team9.activities.User
 
 class Menu(){
 

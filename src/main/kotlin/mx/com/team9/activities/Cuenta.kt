@@ -1,10 +1,8 @@
-package mx.com.team9.models
+package mx.com.team9.activities
 
-import mx.com.team9.activities.Transaccion
 import java.time.LocalDateTime
-import java.util.Date
 
-/*  mx.com.team9.models.Cuenta.kt tendra los atributos para poder manejar las cuentas de los usuarios y las
+/*  mx.com.team9.activities.Cuenta.kt tendra los atributos para poder manejar las cuentas de los usuarios y las
     operaciones que se pueden realizar en ellas.
 
     Posible atributos:
@@ -39,7 +37,7 @@ class Cuenta(
     val tipoCuenta: String,
     val estadoCuenta: String,
     val usuario: User,
-    val transacciones: MutableList<Transaccion>?
+    val transacciones: MutableList<Movimiento>?
 ) {
     lateinit var  fechaCreacion: LocalDateTime
 

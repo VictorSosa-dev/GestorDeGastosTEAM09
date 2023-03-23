@@ -1,4 +1,4 @@
-package mx.com.team9.models
+package mx.com.team9.activities
 
 const val PASSWORD_LENGHT = 10
 class User(name: String, email: String, password: String) {
