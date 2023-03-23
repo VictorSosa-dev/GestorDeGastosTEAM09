@@ -16,6 +16,7 @@ package mx.com.team9.utils
  * @property OTRO
  */
 enum class TipoCategoria {
+    SALARIO,
     HOGAR,
     SEGURO,
     COMIDA,
