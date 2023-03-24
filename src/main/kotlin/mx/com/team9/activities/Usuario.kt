@@ -14,7 +14,7 @@ class Usuario(
     nombre: String,
     correo: String,
     contrasena: String,
-    var cuentas: MutableList<Cuenta>? = null) {
+    var listaCuentas: MutableList<Cuenta>? = null) {
 
     val idUsuario: String = UUID.randomUUID().toString() // sera necesario el id?
     init {
@@ -39,11 +39,11 @@ class Usuario(
             else println("El password debe contener al menos 10 digitos")
         }
 
-    fun getName(): String {
+    fun getNombre(): String {
         return this.nombre
     }
 
-    fun getEmail(): String {
+    fun getCorreo(): String {
         return this.correo
     }
 

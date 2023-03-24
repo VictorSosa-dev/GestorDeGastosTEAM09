@@ -1,4 +1,4 @@
-package mx.com.team9.utils
+package mx.com.team9.Utils
 
 /**
  * Enumeración que representa los tipos de categorías que pueden tener las transacciones

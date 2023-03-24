@@ -81,3 +81,4 @@ out/
 /test.output
 /kotlin-native/dist
 kotlin-ide/
+/out/

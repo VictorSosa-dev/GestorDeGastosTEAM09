@@ -1,10 +1,11 @@
-package mx.com.team9.utils
+package mx.com.team9.controladores
 
 import mx.com.team9.activities.Usuario
+import mx.com.team9.Utils.Utilidades.limpiarPantalla
 import kotlin.system.exitProcess
 
 //TODO: EL AUTENTICADO PODRIA ESTAR FUERA
-class Menu(){
+class MenuAutenticacion(){
 
     val listaUsuarios = mutableListOf<Usuario>(
         Usuario("Victor", "vic@test.com", "123", null),
@@ -13,17 +14,34 @@ class Menu(){
     )
 
     fun menuAutenticar() {
-        println("+".repeat(60))
-        println("+              BIENVENIDO A TU GESTOR DE GASTOS            +")
-        println("+                        AUTOR TEAM 9                      +")
-        println("+  https://github.com/VictorSosa-dev/GestorDeGastosTEAM09/ +")
-        println("+".repeat(60))
-        println("*".repeat(60))
-        println("*                        MENU DE OPCIONES                  *")
-        println("*                       1.- INICIAR SESIÓN                 *")
-        println("*                       2.- REGISTRARSE                    *")
-        println("*                       3.- SALIR                          *")
-        println("*".repeat(60))
+        println("""
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++       BIENVENIDO CASH MANAGER: A TU GESTOR DE GASTOS     +
++                    AUTOR TEAM 9                          +
++   CARLOS SALAZAR - EMANUEL RIVERA - FERNANDO NOVALES     +
++               KEVIN GORDILLO - VICTOR SOSA               +
++  https://github.com/VictorSosa-dev/GestorDeGastosTEAM09/ +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+************************************************************
+*                        MENU DE OPCIONES                  *
+*                       1.- INICIAR SESIÓN                 *
+*                       2.- REGISTRARSE                    *
+*                       3.- SALIR                          *
+************************************************************
+""".trimIndent())
+//        println("+".repeat(60))
+//        println("+        BIENVENIDO CASH MANAGER -TU GESTOR DE GASTOS      +")
+//        println("+                       AUTOR TEAM 9:                       +")
+//                "EMANUELRIVERA-KEVINGORDILLO-" +
+//                "VICTORSOSA-CARLOSJIMENES-FERNANDO  +")
+//        println("+  https://github.com/VictorSosa-dev/GestorDeGastosTEAM09/ +")
+//        println("+".repeat(60))
+//        println("*".repeat(60))
+//        println("*                        MENU DE OPCIONES                  *")
+//        println("*                       1.- INICIAR SESIÓN                 *")
+//        println("*                       2.- REGISTRARSE                    *")
+//        println("*                       3.- SALIR                          *")
+//        println("*".repeat(60))
     }
     fun MostrarMenu() {
         var _salida = false
@@ -53,14 +71,14 @@ class Menu(){
         println("Ingresa tu contraseña:")
         val password = readln().toString()
         // Validar si el usuario ya existe
-        val usuario = listaUsuarios.find { it.getEmail() == email }
+        val usuario = listaUsuarios.find { it.getCorreo() == email }
         if (usuario != null){
             if (usuario.validarPassword(password)){
                 // se muestra el menu de operaciones para el usuario
                 // para evitar tener todo aqui puedes crear una funcion una
                 // en otro archivo y llamarla aqui para las operaciones del usuario
                 // tambien se debe crear la cuenta del usuario
-                mostrarMenuOperaciones(usuario.getName())
+                mostrarMenuOperaciones(usuario.getNombre())
             } else {
                 println("Contraseña incorrecta")
                 Thread.sleep(1000)
@@ -79,7 +97,7 @@ class Menu(){
         println("Ingresa tu nombre de usuario:")
         var nombreUsuario = readln()
         // Validar que el nombre usuario no exista en la lista de usuarios
-        while (listaUsuarios.find { it.getName().lowercase() == nombreUsuario.lowercase() } != null){
+        while (listaUsuarios.find { it.getNombre().lowercase() == nombreUsuario.lowercase() } != null){
             println("El usuario $nombreUsuario ya existe, ingresa otro nombre de usuario")
             limpiarPantalla()
             println("Ingresa tu nombre de usuario:")
@@ -94,7 +112,7 @@ class Menu(){
             println("Ingresa tu email:")
             email = readln()
         }
-        while (listaUsuarios.find { it.getEmail() == email } != null){
+        while (listaUsuarios.find { it.getCorreo() == email } != null){
             println("El email $email ya existe, ingresa otro correo")
             limpiarPantalla()
             println("Ingresa tu email:")
@@ -118,10 +136,7 @@ class Menu(){
         println("+".repeat(60))
     }
 
-    fun limpiarPantalla(){
-        println("\u001b[H\u001b[2J")
-    }
-
+    
     fun cerrarSistema(){
         println("Gracias por usar nuestro sistema")
         println("Hasta pronto")

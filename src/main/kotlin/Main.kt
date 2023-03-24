@@ -1,9 +1,9 @@
-import mx.com.team9.utils.Menu
+import mx.com.team9.controladores.MenuAutenticacion
 
 fun main(args: Array<String>) {
     //Aqui se ejectuara el programa principal y se instanciaran las principales clases
-//    inicioSistemaCashControlManager()
-    val menu = Menu()
+    inicioSistemaCashControlManager()
+    val menu = MenuAutenticacion()
     menu.MostrarMenu()
 }
 

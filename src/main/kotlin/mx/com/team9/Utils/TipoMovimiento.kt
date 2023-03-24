@@ -1,4 +1,4 @@
-package mx.com.team9.utils
+package mx.com.team9.Utils
 
 enum class TipoMovimiento {
     DEPOSITO,
