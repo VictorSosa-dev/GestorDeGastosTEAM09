@@ -1,15 +1,21 @@
 package mx.com.team9.utils
 
 import mx.com.team9.activities.Usuario
+import kotlin.system.exitProcess
 
+//TODO: EL AUTENTICADO PODRIA ESTAR FUERA
 class Menu(){
 
-    val listaDeUsuarios = mutableListOf<Usuario>()
+    val listaUsuarios = mutableListOf<Usuario>(
+        Usuario("Victor", "vic@test.com", "123", null),
+        Usuario("Kef", "kef@test.com", "123", null),
+        Usuario("Ema", "ema@test.com", "123", null),
+    )
 
-    fun MostrarMenu() {
+    fun menuAutenticar() {
         println("+".repeat(60))
         println("+              BIENVENIDO A TU GESTOR DE GASTOS            +")
-        println("+                        AUTHOR TEAM 9                     +")
+        println("+                        AUTOR TEAM 9                      +")
         println("+  https://github.com/VictorSosa-dev/GestorDeGastosTEAM09/ +")
         println("+".repeat(60))
         println("*".repeat(60))
@@ -18,34 +24,38 @@ class Menu(){
         println("*                       2.- REGISTRARSE                    *")
         println("*                       3.- SALIR                          *")
         println("*".repeat(60))
-
-
+    }
+    fun MostrarMenu() {
         var _salida = false
         do {
+            menuAutenticar()
             print("PULSA TU SELECCION E INTRO:")
             // evitar que el usuario ingrese un valor no numerico
-            val opc = readLine()?.toIntOrNull() ?: 0
+            val opc = readln()?.toIntOrNull() ?: 0
             when (opc) {
                 1 -> ingresar()
                 2 -> registrarse()
                 3 -> _salida = true
-                else -> println(" $opc ->>> no es una opción valida :(")
+                else -> {
+                    println(" $opc ->>> no es una opción valida")
+                    Thread.sleep(1000)
+                    limpiarPantalla()
+                }
             }
-
-            //_salida = true
         } while (!_salida)
+        cerrarSistema()
     }
 
     // login
     private fun ingresar(){
         println("Ingresa tu email:")
-        val email = readLine().toString()
+        val email = readln().toString()
         println("Ingresa tu contraseña:")
         val password = readln().toString()
         // Validar si el usuario ya existe
-        val usuario = listaDeUsuarios.find { it.getEmail() == email }
+        val usuario = listaUsuarios.find { it.getEmail() == email }
         if (usuario != null){
-            if (usuario.validatePassword(password)){
+            if (usuario.validarPassword(password)){
                 // se muestra el menu de operaciones para el usuario
                 // para evitar tener todo aqui puedes crear una funcion una
                 // en otro archivo y llamarla aqui para las operaciones del usuario
@@ -53,37 +63,52 @@ class Menu(){
                 mostrarMenuOperaciones(usuario.getName())
             } else {
                 println("Contraseña incorrecta")
+                Thread.sleep(1000)
+                limpiarPantalla()
             }
         } else {
             println("El usuario no existe")
+            Thread.sleep(1000)
+            limpiarPantalla()
         }
 
     }
 
-    // sing in
+    // Registro de usuario
     private fun registrarse() {
-        val u1 = Usuario()
-        // Crear usuario
-        println("Ingresa tu usuario:")
-        val usuario= readLine().toString()
-        println("Ingresa tu email:")
-        val email = readLine().toString()
-        println("Ingresa tu contraseña:")
-        val password = readLine().toString()
-        u1.crearUsuario(usuario, email, password)
-        // Validar si el usuario ya existe
-        val existe = listaDeUsuarios.find { it.getEmail() == email }
-        if (existe != null){
-            println("El usuario $usuario ya existe inicia sesión")
-            return
+        println("Ingresa tu nombre de usuario:")
+        var nombreUsuario = readln()
+        // Validar que el nombre usuario no exista en la lista de usuarios
+        while (listaUsuarios.find { it.getName().lowercase() == nombreUsuario.lowercase() } != null){
+            println("El usuario $nombreUsuario ya existe, ingresa otro nombre de usuario")
+            limpiarPantalla()
+            println("Ingresa tu nombre de usuario:")
+            nombreUsuario = readln()
         }
-        // Pedir la cantidad de dinero que tiene el usuario
+        println("Ingresa tu email:")
+        var email = readln()
+        // revisar si es un correo valido
+        while (!email.contains("@") || !email.contains(".")){
+            println("El email $email no es valido, ingresa un email valido")
+            limpiarPantalla()
+            println("Ingresa tu email:")
+            email = readln()
+        }
+        while (listaUsuarios.find { it.getEmail() == email } != null){
+            println("El email $email ya existe, ingresa otro correo")
+            limpiarPantalla()
+            println("Ingresa tu email:")
+            email = readln()
+        }
+        println("Ingresa tu contraseña:")
+        val password = readln().toString()
         // Se crea la cuenta del usuario
-        listaDeUsuarios.add(u1)
+        listaUsuarios.add(Usuario(nombreUsuario, email, password, null))
+        println("Usuario registrado con exito. Puedes iniciar sesión")
+        Thread.sleep(1000)
+        limpiarPantalla()
         // Luego mostrar el menu de operaciones por ejemplo
         // agregar gasto, agregar ingreso, ver gastos, ver ingreso
-
-
     }
 
     private fun mostrarMenuOperaciones(usuario: String){
@@ -91,6 +116,17 @@ class Menu(){
         println("+                    Bienvenido $usuario                  +")
         println("+                        AUTHOR TEAM 9                    +")
         println("+".repeat(60))
+    }
+
+    fun limpiarPantalla(){
+        println("\u001b[H\u001b[2J")
+    }
+
+    fun cerrarSistema(){
+        println("Gracias por usar nuestro sistema")
+        println("Hasta pronto")
+        Thread.sleep(2000)
+        exitProcess(0)
     }
 
 }

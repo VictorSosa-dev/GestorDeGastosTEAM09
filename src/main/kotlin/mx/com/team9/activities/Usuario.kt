@@ -2,24 +2,24 @@ package mx.com.team9.activities
 
 import java.util.UUID
 
-const val PASSWORD_LENGHT = 10
+const val LONGITUD_PASSWORD = 10
+/**
+ * Clase que representa a un usuario
+ * @param nombre Nombre del usuario
+ * @param correo Correo del usuario
+ * @param contrasena Contraseña del usuario
+ */
+
 class Usuario(
-    idUsuario: String,
     nombre: String,
     correo: String,
     contrasena: String,
-    var cuentas: MutableList<Cuenta> = mutableListOf()) {
-    /**
-     * Clase que representa a un usuario
-     * @param nombre Nombre del usuario
-     * @param correo Correo del usuario
-     * @param contrasena Contraseña del usuario
-     */
+    var cuentas: MutableList<Cuenta>? = null) {
 
-    // Constructor vacío
-    constructor() : this("", "", "", "")
+    val idUsuario: String = UUID.randomUUID().toString() // sera necesario el id?
     init {
-        println("El usuario $nombre ha ingresado")
+        //Este mensaje se imprimira siempre
+//        println("El usuario $nombre ha ingresado")
     }
 
     private var nombre = nombre
@@ -35,7 +35,7 @@ class Usuario(
 
     private var contrasena: String = contrasena
         set(value) {
-            if (value.length >= PASSWORD_LENGHT) field = value
+            if (value.length >= LONGITUD_PASSWORD) field = value
             else println("El password debe contener al menos 10 digitos")
         }
 
@@ -47,15 +47,11 @@ class Usuario(
         return this.correo
     }
 
-    fun validatePassword(contrasena: String): Boolean {
+    fun validarPassword(contrasena: String): Boolean {
         return this.contrasena == contrasena
     }
 
     // Método para crear un usuario
-    fun crearUsuario(nombre: String, correo: String, contrasena: String) {
-        val id = UUID.randomUUID().toString()
-        val usuario = Usuario(id, nombre, correo, contrasena)
-    }
 
     // Metodo para iniciar sesión
     fun iniciarSesion(correo: String, contrasena: String): Boolean {
