@@ -2,7 +2,6 @@ package mx.com.team9.activities
 
 import mx.com.team9.models.Categoria
 import java.time.LocalDateTime
-import java.util.*
 
 /*
  * Clase abstracta que representa una transacción de una cuenta
@@ -13,15 +12,17 @@ import java.util.*
  *  - mx.com.team9.enums.Categoria de la transaccion
  *  - mx.com.team9.activities.Cuenta de origen asociada a la transaccion
  */
-abstract class Movimiento {
+abstract class Movimiento(
+    val cuenta: Cuenta,
+    val monto: Double,
+    val descripcion: String,
+    val categoria: Categoria
+) {
+    abstract fun actualizarSaldo()
 
-    abstract val monto: Double
-    abstract val descripcion: String
-    abstract val categoria: Categoria
-    abstract val cuentaOrigen: Cuenta
-    val id: String
-        get() = UUID.randomUUID().toString()
-
+    fun realizarMovimiento() {
+        actualizarSaldo()
+    }
     val fecha: LocalDateTime
         get() = LocalDateTime.now()
 

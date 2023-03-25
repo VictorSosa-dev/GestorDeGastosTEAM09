@@ -2,7 +2,7 @@ package mx.com.team9.activities
 
 import java.util.UUID
 
-const val LONGITUD_PASSWORD = 10
+const val LONGITUD_PASSWORD = 8
 /**
  * Clase que representa a un usuario
  * @param nombre Nombre del usuario
@@ -11,16 +11,13 @@ const val LONGITUD_PASSWORD = 10
  */
 
 class Usuario(
+    id: String,
     nombre: String,
     correo: String,
     contrasena: String,
-    var listaCuentas: MutableList<Cuenta>? = null) {
+    ) {
 
-    val idUsuario: String = UUID.randomUUID().toString() // sera necesario el id?
-    init {
-        //Este mensaje se imprimira siempre
-//        println("El usuario $nombre ha ingresado")
-    }
+    val listaCuentas: MutableList<Cuenta>? = mutableListOf()
 
     private var nombre = nombre
         set(value) {
@@ -51,11 +48,13 @@ class Usuario(
         return this.contrasena == contrasena
     }
 
-    // Método para crear un usuario
-
-    // Metodo para iniciar sesión
     fun iniciarSesion(correo: String, contrasena: String): Boolean {
         return this.correo == correo && this.contrasena == contrasena
+    }
+
+    fun creaCuenta(cuenta: Cuenta) {
+        listaCuentas?.add(cuenta)
+        cuenta.usuario = this
     }
 
 }
