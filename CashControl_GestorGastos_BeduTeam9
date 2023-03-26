@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-22T05:31:38.064Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="5gW1rI3ar-9xJi0Lj-on" version="21.0.10" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-26T03:26:43.601Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="gelDbgBuRkd_Zx9GN0PI" version="21.1.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="782" dy="1890" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="875" dy="1620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -45,9 +45,9 @@
         <mxCell id="0VMtXi6FEN-ml4HzA7Fn-17" value="+ Usuario(nombreUsuario: String, contraseña: String)&lt;br&gt;+ crearCuenta()&amp;nbsp;&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="0VMtXi6FEN-ml4HzA7Fn-14" vertex="1">
           <mxGeometry y="128" width="220" height="62" as="geometry" />
         </mxCell>
-        <mxCell id="cESlgo24U3WESzuWMJ2O-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=open;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0VMtXi6FEN-ml4HzA7Fn-21" edge="1">
+        <mxCell id="cESlgo24U3WESzuWMJ2O-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0VMtXi6FEN-ml4HzA7Fn-21" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="949.9999999999998" y="297.9219999999998" as="targetPoint" />
+            <mxPoint x="940" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="cESlgo24U3WESzuWMJ2O-46" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="cESlgo24U3WESzuWMJ2O-45" vertex="1" connectable="0">
@@ -75,13 +75,16 @@
           <mxGeometry y="100" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="0VMtXi6FEN-ml4HzA7Fn-25" value="&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;br&gt;Movimiento" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="870" y="170" width="160" height="128" as="geometry" />
+          <mxGeometry x="870" y="170" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="0VMtXi6FEN-ml4HzA7Fn-26" value="- monto: Double&lt;br&gt;- descripcion: String&lt;br&gt;- fecha: Date&lt;br&gt;- cuenta: Cuenta" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="0VMtXi6FEN-ml4HzA7Fn-25" vertex="1">
+        <mxCell id="0VMtXi6FEN-ml4HzA7Fn-26" value="- monto: Double&lt;br&gt;- descripcion: String&lt;br&gt;- fecha: Date&lt;br&gt;- cuenta: Cuenta&lt;br&gt;- categoria: Categoria" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="0VMtXi6FEN-ml4HzA7Fn-25" vertex="1">
           <mxGeometry y="40" width="160" height="80" as="geometry" />
         </mxCell>
         <mxCell id="0VMtXi6FEN-ml4HzA7Fn-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="0VMtXi6FEN-ml4HzA7Fn-25" vertex="1">
-          <mxGeometry y="120" width="160" height="8" as="geometry" />
+          <mxGeometry y="120" width="160" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="UB9YT3NsK2Uid0fQ-p6u-0" value="&amp;nbsp;+ actualizarSaldo()" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="0VMtXi6FEN-ml4HzA7Fn-25">
+          <mxGeometry y="130" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="cESlgo24U3WESzuWMJ2O-0" value="Cuenta de Ahorros" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1161" y="630" width="160" height="86" as="geometry" />
