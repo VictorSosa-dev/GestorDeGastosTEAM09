@@ -1,6 +1,4 @@
-package mx.com.team9.activities
-
-import java.util.UUID
+package mx.com.team9.domain
 
 const val LONGITUD_PASSWORD = 8
 /**
@@ -15,7 +13,7 @@ class Usuario(
     nombre: String,
     correo: String,
     contrasena: String,
-    ) {
+) {
 
     val listaCuentas: MutableList<Cuenta>? = mutableListOf()
 
@@ -44,17 +42,17 @@ class Usuario(
         return this.correo
     }
 
-    fun validarPassword(contrasena: String): Boolean {
+    fun validarContrasena(contrasena: String): Boolean {
         return this.contrasena == contrasena
     }
 
-    fun iniciarSesion(correo: String, contrasena: String): Boolean {
-        return this.correo == correo && this.contrasena == contrasena
-    }
-
-    fun creaCuenta(cuenta: Cuenta) {
+    fun agregarCuenta(cuenta: Cuenta) {
         listaCuentas?.add(cuenta)
         cuenta.usuario = this
+    }
+
+    fun obtenerSaldoPrincipal(): Double {
+        return listaCuentas?.get(0)?.saldo ?: 0.0
     }
 
 }

@@ -85,7 +85,7 @@
         <mxCell id="TOorRGOiGPxjWvXcA9n--37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.381;entryY=1.038;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="TOorRGOiGPxjWvXcA9n--15" target="TOorRGOiGPxjWvXcA9n--26">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="TOorRGOiGPxjWvXcA9n--15" value="mx.com.team9.activities.Cuenta" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="TOorRGOiGPxjWvXcA9n--15" value="mx.com.team9.domain.Cuenta" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="310" y="670" width="250" height="150" as="geometry" />
         </mxCell>
         <mxCell id="TOorRGOiGPxjWvXcA9n--16" value="saldo:Double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="TOorRGOiGPxjWvXcA9n--15">

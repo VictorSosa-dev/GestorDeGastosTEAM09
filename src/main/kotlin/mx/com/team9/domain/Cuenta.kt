@@ -1,4 +1,4 @@
-package mx.com.team9.activities
+package mx.com.team9.domain
 
 import java.time.LocalDateTime
 
@@ -20,10 +20,12 @@ import java.time.LocalDateTime
 class Cuenta(
     val idCuenta: String,
     var saldo: Double,
-    var fechaCreacion: LocalDateTime
 ) {
-    private val movimientos =  mutableListOf<Movimiento>()
+    val listaMovimientos =  mutableListOf<Movimiento>()
+
     lateinit var usuario: Usuario
+
+    val fechaCreacion: LocalDateTime = LocalDateTime.now()
 
     fun consultaSaldo() {
         println("El saldo de la cuenta es: $saldo")
@@ -31,7 +33,7 @@ class Cuenta(
 
     // consultar los movimientos de la cuenta
     fun obtenerMovimientos(): List<Movimiento> {
-        return movimientos
+        return listaMovimientos
     }
 
 }
