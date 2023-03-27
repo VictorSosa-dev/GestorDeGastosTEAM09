@@ -7,10 +7,10 @@ class Mock {
 
     fun mockData(): MutableList<Usuario> {
         val listaUsuarios = mutableListOf<Usuario>()
-        val usuario1 = Usuario("1", "Victor", "vic@vic.comm", "123")
+        val usuario1 = Usuario("1", "Victor", "vic@vic.com", "123")
         val usuario2 = Usuario("2", "Kef", "kef@kef.com", "123")
-        usuario1.agregarCuenta(Cuenta("1", 1000.0 ))
-        usuario2.agregarCuenta(Cuenta("2", 2000.0, ))
+        usuario1.agregarCuenta(Cuenta("1", 1000.0, "Principal" ))
+        usuario2.agregarCuenta(Cuenta("2", 2000.0, "Principal"))
         listaUsuarios.add(usuario1)
         listaUsuarios.add(usuario2)
         return listaUsuarios

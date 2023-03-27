@@ -47,7 +47,6 @@ object AutenticacionController {
         val usuario = listaUsuarios.find { it.getCorreo() == email }
         if (usuario != null){
             if (usuario.validarContrasena(password)){
-                println("Bienvenido ${usuario.getNombre()}")
 //                usuario.listaCuentas?.get(0)?.let { println(it.saldo) }
                 Thread.sleep(1000)
                 SistemaPrincipalController.manejoCuenta(usuario) //TODO: EXTRAER DESPUES
@@ -122,7 +121,7 @@ object AutenticacionController {
             println("El monto debe ser mayor o igual a 0 :")
             montoInicial = readln()?.toDoubleOrNull() ?: 0.0
         }
-        val cuenta = Cuenta(UUID.randomUUID().toString(), montoInicial)
+        val cuenta = Cuenta(UUID.randomUUID().toString(), montoInicial, "Cuenta Default")
         usuario.agregarCuenta(cuenta)
         listaUsuarios.add(usuario)
     }

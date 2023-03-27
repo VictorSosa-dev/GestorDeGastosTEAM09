@@ -20,6 +20,7 @@ import java.time.LocalDateTime
 class Cuenta(
     val idCuenta: String,
     var saldo: Double,
+    var nombre: String,
 ) {
     val listaMovimientos =  mutableListOf<Movimiento>()
 

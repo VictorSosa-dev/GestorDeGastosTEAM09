@@ -17,10 +17,8 @@ object SistemaPrincipalController {
 
 
                 }
-
-                2 -> { // manejo de cuentas -> crear cuenta, editar cuenta, eliminar cuenta
-
-                }
+                // Manejo de cuentas -> consultar saldo, consultar movimientos, agregar cuenta, eliminar cuenta
+                2 -> CuentasController(usuario).seleccionarCuenta()
 
                 3 -> { // Realizar movimientos -> ingreso, gasto, transferencia
                     val contraladorMovimientos = MovimientosController(usuario)

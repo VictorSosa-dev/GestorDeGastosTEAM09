@@ -28,7 +28,7 @@ object Utilidades {
         println()
         // Imprime un mensaje indicando que el programa se ha cargado exitosamente
         logoCashManager()
-        Thread.sleep(5000)
+        Thread.sleep(1000)
     }
 
     fun generarBarraCarga(progreso: Int, total: Int): String {
@@ -75,7 +75,7 @@ object Utilidades {
             """    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
     + BIENVENIDO CASH MANAGER: TU GESTOR DE GASTOS PERSONALES  +
     +      AUTOR TEAM 9:  CARLOS SALAZAR - EMANUEL RIVERA      +
-    +       FERNANDO NOVALES -KEVIN GORDILLO - VICTOR SOSA     +
+    +       FERNANDO NOVALES - KEVIN GORDILLO - VICTOR SOSA    +
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
                 ───────────────────────█──────────────
@@ -84,22 +84,16 @@ object Utilidades {
                 ─────██──────██▄▄▄█──▄─█─██──██──█────
                 ────▄██▄▄▄█─▄██───█──█▄█▄██─▄██──█────
                 ───────────────────────█──────────────
-                ──────────────MANAGER─────────────────
+                ──────────────MANAGER v1.00───────────
                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒""".trimIndent()
         )
+        println()
     }
 
     fun mostrarOpcionesAutenticar() {
+        inicioSistemaCashControlManager()
         println(
-            """
-    
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-    +       CASH MANAGER: TU GESTOR DE GASTOS PERSONALES       +
-    +                    CASH MANAGER                          +
-    +                       V1.00                              +
-    +                     MARZO 2023                           +
-    +                                                          +
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            """  
     ************************************************************
     *                   ACCESO AL SISTEMA                      *
     *                   1.- INICIAR SESIÓN                     *
@@ -115,9 +109,10 @@ object Utilidades {
     fun mostrarOpcionesPrincipal() = println(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    +         BIENVENIDO ${SistemaPrincipalController.usuario.getNombre().uppercase()}    + 
-    +SALDO CUENTA PRINCIPAL:$${SistemaPrincipalController.usuario.obtenerSaldoPrincipal()}+
+                 CASH MANAGER: A TU GESTOR DE GASTOS          
+        -> BIENVENIDO ${SistemaPrincipalController.usuario.getNombre().uppercase()}    
+        -> SALDO CUENTA PRINCIPAL:$${SistemaPrincipalController.usuario.obtenerSaldoPrincipal()}
+    
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                    MENU  PRINCIPAL                       *
