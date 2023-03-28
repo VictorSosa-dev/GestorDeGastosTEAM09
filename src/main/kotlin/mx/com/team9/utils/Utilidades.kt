@@ -2,6 +2,7 @@ package mx.com.team9.utils
 
 import mx.com.team9.controllers.SistemaPrincipalController
 import mx.com.team9.domain.Usuario
+import kotlin.random.Random
 import kotlin.system.exitProcess
 
 //Funciones que se pueden ocupar en todo el proyecto
@@ -112,12 +113,13 @@ object Utilidades {
     }
 
     //Menu inicial de cuenta,
-    fun mostrarOpcionesPrincipal() = println(
+    fun mostrarOpcionesPrincipal(usuario: Usuario) = println(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    +         BIENVENIDO ${SistemaPrincipalController.usuario.getNombre().uppercase()}    + 
-    +SALDO CUENTA PRINCIPAL:$${SistemaPrincipalController.usuario.obtenerSaldoPrincipal()}+
+    BIENVENIDO ${usuario.getNombre().uppercase()}
+    SALDO CUENTA PRINCIPAL:$${usuario.obtenerSaldoPrincipal()}
+    +                                                          +
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                    MENU  PRINCIPAL                       *
@@ -132,8 +134,9 @@ object Utilidades {
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    +         BIENVENIDO ${usuario.getNombre().uppercase()}    + 
-    +SALDO CUENTA PRINCIPAL:${usuario.obtenerSaldoPrincipal()} +
+    BIENVENIDO ${usuario.getNombre().uppercase()}
+    SALDO CUENTA PRINCIPAL:$${usuario.obtenerSaldoPrincipal()}
+    +                                                          +
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                 MENU DE MOVIMIENTOS                      *
@@ -148,5 +151,14 @@ object Utilidades {
         println("VUELVE PRONTO")
         Thread.sleep(2000)
         exitProcess(0)
+    }
+
+    //Funcion para generar un ID unico para cuentas y movimientos
+    fun generadorIDUnico(longitud: Int): String {
+        val charPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        return (1..longitud)
+            .map { Random.nextInt(0, charPool.length) }
+            .map(charPool::get)
+            .joinToString("")
     }
 }

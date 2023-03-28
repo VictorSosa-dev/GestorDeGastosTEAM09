@@ -1,20 +1,21 @@
 package mx.com.team9.controllers
 
 import mx.com.team9.domain.Usuario
+import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.mostrarOpcionesPrincipal
 
 object SistemaPrincipalController {
     lateinit var usuario: Usuario
     //Logica de Manejo de Cuenta
-    fun manejoCuenta(usuario: Usuario) {
+    fun sistemaPrincipal(usuario: Usuario) {
         this.usuario = usuario
 
-        mostrarOpcionesPrincipal()
+        mostrarOpcionesPrincipal(usuario)
         var opcion = readln().toInt()
         do {
             when (opcion) {
                 1 -> { // reportes  -> resumen mensual, ultimos movimientos
-
+1
 
                 }
 
@@ -23,21 +24,24 @@ object SistemaPrincipalController {
                 }
 
                 3 -> { // Realizar movimientos -> ingreso, gasto, transferencia
-                    val contraladorMovimientos = MovimientosController(usuario)
-                    contraladorMovimientos.seleccionarMovimiento()
+                    MovimientosController.seleccionarMovimiento(usuario)
                 }
 
-                4 -> { // desloguearse
-
+                4 -> { // DELOGUERASE
+                    println("¿SEGURO QUE DESEA DESLOGUEARSE? (S/N)")
+                    val respuesta = readln()
+                    if (respuesta == "S" || respuesta == "s") {
+                        println("DESLOGUEANDO")
+                        Thread.sleep(1000)
+                        Utilidades.limpiarPantalla()
+                        AutenticacionController.menuAutenticacion()
+                    }
                 }
 
                 else -> {
-                    println("Opcion no valida")
+                    println("OPCION NO VALIDA")
                 }
             }
         } while (opcion != 4)
     }
-
-
-
 }
