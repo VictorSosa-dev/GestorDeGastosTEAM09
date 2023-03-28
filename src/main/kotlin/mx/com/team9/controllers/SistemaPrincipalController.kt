@@ -10,6 +10,7 @@ object SistemaPrincipalController {
         this.usuario = usuario
 
         mostrarOpcionesPrincipal()
+        println("Selecciona una opcion:")
         var opcion = readln().toInt()
         do {
             when (opcion) {
@@ -18,7 +19,7 @@ object SistemaPrincipalController {
 
                 }
                 // Manejo de cuentas -> consultar saldo, consultar movimientos, agregar cuenta, eliminar cuenta
-                2 -> CuentasController(usuario).seleccionarCuenta()
+                2 -> CuentasController.manejoCuentas(usuario)
 
                 3 -> { // Realizar movimientos -> ingreso, gasto, transferencia
                     val contraladorMovimientos = MovimientosController(usuario)
@@ -35,7 +36,5 @@ object SistemaPrincipalController {
             }
         } while (opcion != 4)
     }
-
-
 
 }

@@ -138,6 +138,20 @@ object Utilidades {
     *                  4.- ATRAS                               *
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
 
+    //Menu inicial de cuenta,
+    fun mostrarMenuCuentas() = println(
+        """
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    *                 MENU DE CUENTAS                          *
+    *               1. Consultar movimientos                   *
+    *               2. Agregar cuenta                          *
+    *               3. Eliminar cuenta                         *
+    *               4. Regresar                                *
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    """.trimIndent()
+    )
+
+
     fun cerrarSistema() {
         println("GRACIAS POR USAR CASH MANAGER\n")
         println("VUELVE PRONTO")

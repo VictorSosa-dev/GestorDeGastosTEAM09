@@ -36,5 +36,4 @@ class Cuenta(
     fun obtenerMovimientos(): List<Movimiento> {
         return listaMovimientos
     }
-
 }

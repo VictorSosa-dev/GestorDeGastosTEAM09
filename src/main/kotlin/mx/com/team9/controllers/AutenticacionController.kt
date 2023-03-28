@@ -39,22 +39,29 @@ object AutenticacionController {
 
     // Funcion para iniciar sesion con validacion de usuario y contraseña
     private fun ingresar(){
+        var intentos = 3
         println("Ingresa tu email:")
         val email = validarCorreo()
         println("Ingresa tu contraseña:")
-        val password = readln()
+        var password = readln()
         // Validar si el usuario ya existe
         val usuario = listaUsuarios.find { it.getCorreo() == email }
         if (usuario != null){
-            if (usuario.validarContrasena(password)){
-//                usuario.listaCuentas?.get(0)?.let { println(it.saldo) }
-                Thread.sleep(1000)
-                SistemaPrincipalController.manejoCuenta(usuario) //TODO: EXTRAER DESPUES
-            } else {
+            while (!usuario.validarContrasena(password) && intentos > 0){
                 println("Contraseña incorrecta")
+                println("Intentos restantes: $intentos")
+                println("Ingresa tu contraseña:")
+                password = readln()
+                intentos--
+            }
+            if (intentos == 0){
+                println("Has excedido el numero de intentos")
                 Thread.sleep(1000)
                 limpiarPantalla()
+                return
             }
+            Thread.sleep(1000)
+            SistemaPrincipalController.manejoCuenta(usuario)
         } else {
             println("El usuario no existe")
             Thread.sleep(1000)
@@ -89,6 +96,7 @@ object AutenticacionController {
         }
         return email
     }
+
     private fun validarExistenciaCorreo(): String {
         var email = validarCorreo()
         // Validar que el correo no exista en la lista de usuarios
