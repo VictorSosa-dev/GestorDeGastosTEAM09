@@ -51,7 +51,7 @@ object AutenticacionController {
                 println("Bienvenido ${usuario.getNombre()}")
 //                usuario.listaCuentas?.get(0)?.let { println(it.saldo) }
                 Thread.sleep(1000)
-                SistemaPrincipalController.sistemaPrincipal(usuario) //TODO: EXTRAER DESPUES
+                SistemaPrincipalController.sistemaPrincipal(usuario)
             } else {
                 println("Contraseña incorrecta")
                 Thread.sleep(1000)

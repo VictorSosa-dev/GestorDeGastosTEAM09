@@ -9,6 +9,7 @@ import kotlin.system.exitProcess
 object Utilidades {
     //Funcion para limpiar la pantalla
     fun limpiarPantalla() {
+        Thread.sleep(1000)
         println("\u001b[H\u001b[2J")
     }
 
@@ -113,7 +114,7 @@ object Utilidades {
     }
 
     //Menu inicial de cuenta,
-    fun mostrarOpcionesPrincipal(usuario: Usuario) = println(
+    fun mostrarOpcionesPrincipal(usuario: Usuario) = print(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     +             CASH MANAGER: A TU GESTOR DE GASTOS          +
@@ -127,10 +128,11 @@ object Utilidades {
     *                  2.- MANEJO DE CUENTAS                   *
     *                  3.- REALIZAR MOVIMIENTOS                *
     *                  4.- SALIR DE SESION                     *
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    INGRESA TU OPCION Y PRESIONA ENTER:""".trimIndent())
 
     //Menu inicial de cuenta,
-    fun mostrarOpcionesMovimientos(usuario: Usuario) = println(
+    fun mostrarOpcionesMovimientos(usuario: Usuario) = print(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     +             CASH MANAGER: A TU GESTOR DE GASTOS          +
@@ -144,7 +146,8 @@ object Utilidades {
     *                  2.- GASTOS                              *
     *                  3.- TRANSFERENCIAS                      *
     *                  4.- ATRAS                               *
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    INGRESA TU OPCION Y PRESIONA ENTER:""".trimIndent())
 
     fun cerrarSistema() {
         println("GRACIAS POR USAR CASH MANAGER\n")

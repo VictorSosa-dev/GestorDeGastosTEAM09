@@ -32,7 +32,6 @@ object SistemaPrincipalController {
                     val respuesta = readln()
                     if (respuesta == "S" || respuesta == "s") {
                         println("DESLOGUEANDO")
-                        Thread.sleep(1000)
                         Utilidades.limpiarPantalla()
                         AutenticacionController.menuAutenticacion()
                     }
