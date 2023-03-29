@@ -19,6 +19,7 @@ import java.time.LocalDateTime
 
 class Cuenta(
     val idCuenta: String,
+    //TODO: AGREGAR NOMBRE DE CUENTA
     var saldo: Double,
     var nombre: String,
 ) {

@@ -5,6 +5,7 @@ import mx.com.team9.utils.Utilidades.cerrarSistema
 import mx.com.team9.utils.Utilidades.limpiarPantalla
 import mx.com.team9.domain.Usuario
 import mx.com.team9.domain.Cuenta
+import mx.com.team9.utils.Utilidades.generadorIDUnico
 import mx.com.team9.utils.Utilidades.mostrarOpcionesAutenticar
 import java.util.*
 
@@ -61,7 +62,7 @@ object AutenticacionController {
                 return
             }
             Thread.sleep(1000)
-            SistemaPrincipalController.manejoCuenta(usuario)
+            SistemaPrincipalController.sistemaPrincipal(usuario)
         } else {
             println("El usuario no existe")
             Thread.sleep(1000)
@@ -96,7 +97,6 @@ object AutenticacionController {
         }
         return email
     }
-
     private fun validarExistenciaCorreo(): String {
         var email = validarCorreo()
         // Validar que el correo no exista en la lista de usuarios
@@ -129,7 +129,7 @@ object AutenticacionController {
             println("El monto debe ser mayor o igual a 0 :")
             montoInicial = readln()?.toDoubleOrNull() ?: 0.0
         }
-        val cuenta = Cuenta(UUID.randomUUID().toString(), montoInicial, "Cuenta Default")
+        val cuenta = Cuenta(generadorIDUnico(12), montoInicial, "Cuenta Default")
         usuario.agregarCuenta(cuenta)
         listaUsuarios.add(usuario)
     }
