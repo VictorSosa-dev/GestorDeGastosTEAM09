@@ -110,10 +110,10 @@ object Utilidades {
     fun mostrarOpcionesPrincipal(usuario: Usuario) = println(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    BIENVENIDO ${usuario.getNombre().uppercase()}
-    SALDO CUENTA PRINCIPAL:$${usuario.obtenerSaldoPrincipal()}
-    +                                                          +
+                CASH MANAGER: TU GESTOR DE GASTOS            
+                BIENVENIDO          ${usuario.getNombre().uppercase()}
+                NOMBRE CUENTA:      ${usuario.getNombreCuentaPrincipal().uppercase()}
+                SALDO CUENTA:       $${usuario.obtenerSaldoPrincipal()}                                                 
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                    MENU  PRINCIPAL                       *
@@ -127,10 +127,10 @@ object Utilidades {
     fun mostrarOpcionesMovimientos(usuario: Usuario) = println(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    BIENVENIDO ${usuario.getNombre().uppercase()}
-    SALDO CUENTA PRINCIPAL:$${usuario.obtenerSaldoPrincipal()}
-    +                                                          +
+                    CASH MANAGER: TU GESTOR DE GASTOS          
+                    BIENVENIDO      ${usuario.getNombre().uppercase()}
+                    NOMBRE CUENTA:  ${usuario.getNombreCuentaPrincipal().uppercase()}
+                    SALDO CUENTA:   $${usuario.obtenerSaldoPrincipal()}                                                        
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                 MENU DE MOVIMIENTOS                      *
@@ -145,15 +145,14 @@ object Utilidades {
     fun mostrarMenuCuentas() = println(
         """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    *                 MENU DE CUENTAS                          *
-    *               1. Consultar movimientos                   *
-    *               2. Agregar cuenta                          *
-    *               3. Eliminar cuenta                         *
-    *               4. Regresar                                *
+    *                     MENU DE CUENTAS                      *
+    *               1. CONSULTAR MOVIMIENTOS                   *
+    *               2. AGREGAR CUENTA                          *
+    *               3. ELIMINAR UNA CUENTA                     *
+    *               4. REGRESAR AL MENU PRINCIPAL              *
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     """.trimIndent()
     )
-
 
     fun cerrarSistema() {
         println("GRACIAS POR USAR CASH MANAGER\n")

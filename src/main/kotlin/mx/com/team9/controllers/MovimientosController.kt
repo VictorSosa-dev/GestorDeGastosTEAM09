@@ -10,7 +10,6 @@ import mx.com.team9.utils.Utilidades.mostrarOpcionesMovimientos
 object MovimientosController{
     var cuentaSeleccionada: Cuenta? = null
 
-
     fun seleccionarMovimiento(usuario: Usuario) {
         mostrarOpcionesMovimientos(usuario)
         do {

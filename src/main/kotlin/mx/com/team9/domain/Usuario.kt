@@ -55,4 +55,7 @@ class Usuario(
         return listaCuentas?.get(0)?.saldo ?: 0.0
     }
 
+    fun getNombreCuentaPrincipal(): String {
+        return listaCuentas?.get(0)?.nombre ?: ""
+    }
 }

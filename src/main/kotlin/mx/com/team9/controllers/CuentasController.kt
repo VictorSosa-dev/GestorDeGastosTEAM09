@@ -15,7 +15,7 @@ object CuentasController {
 
         // validar si tiene cuentas registradas
         if (usuario.listaCuentas?.size == 0) {
-            println("No tienes cuentas registradas")
+            println("NO TIENES CUENTAS REGISTRADAS")
             return
         }
 
@@ -23,16 +23,28 @@ object CuentasController {
         if (usuario.listaCuentas?.size == 1) {
             cuenta = usuario.listaCuentas?.get(0)
             // seleccionar la cuenta y mostrar detalles de la cuenta
-            mostrarDetallesCuenta()
-            mostrarOpcionesCuenta()
+            mostrarOpcionesCuenta(usuario)
+        }
+
+        // si tiene mas de una cuenta, se le pide que seleccione una
+        if (usuario.listaCuentas?.size!! > 1) {
+            println("ESTAS SON TUS CUENTAS REGISTRADAS")
+            usuario.listaCuentas?.forEachIndexed { index, cuenta ->
+                println("${index + 1}. ${cuenta.nombre}")
+            }
+            println("SELECCIONA UNA CUENTA: ")
+            val opcion = readln().toInt()
+            cuenta = usuario.listaCuentas?.get(opcion - 1)
+            mostrarOpcionesCuenta(usuario)
         }
 
     }
 
-    private fun mostrarOpcionesCuenta() {
+    private fun mostrarOpcionesCuenta(usuario: Usuario) {
         do {
+            mostrarDetallesCuenta()
             mostrarMenuCuentas()
-            println("Selecciona una opcion:")
+            println("SELECCIONA UNA OPCIÓN: ")
             var opcion = readln().toInt()
             when (opcion) {
                 1 -> consultaMovimientos()
@@ -46,12 +58,12 @@ object CuentasController {
                 }
 
                 4 -> {
-                    // regresar al menu principal
-                    return
+                    println("REGRESANDO AL MENU PRINCIPAL......")
+                    Thread.sleep(1000)
+                    SistemaPrincipalController.sistemaPrincipal(usuario)
                 }
-
                 else -> {
-                    println("Opcion no valida")
+                    println("OPCIÓN NO VALIDA")
                 }
             }
         } while (opcion != 4)
@@ -59,32 +71,47 @@ object CuentasController {
     }
 
     private fun eliminarCuenta() {
-        if (cuenta == null) {
-            println("No has seleccionado una cuenta")
+
+        // eliminar la cuenta de la lista de cuentas del usuario
+        if (usuario?.listaCuentas?.size == 1) {
+            println("NO PUEDES ELIMINAR TU UNICA CUENTA")
             return
         }
 
-        // eliminar la cuenta de la lista de cuentas del usuario
-        println("Selecciona la cuenta que deseas eliminar")
-        if (usuario?.listaCuentas?.size == 1) {
-            println("No puedes eliminar tu unica cuenta")
+        usuario?.listaCuentas?.forEachIndexed { index, cuenta ->
+            println("${index + 1}. ${cuenta.nombre}")
+        }
+        println("SELECIONA LA CUENTA QUE DESEAS ELIMINAR")
+        val opcion = readln().toInt() ?: 0
+        if (opcion > usuario?.listaCuentas?.size!! || opcion < 1) {
+            println("OPCION NO VALIDA !!!")
             return
         }
+        // confirmar eliminacion
+        println("¿SEGURO QUIERE ELIMINAR LA CUENTA? (S/N)")
+        val respuesta = readln() ?: ""
+        if (respuesta != "S" && respuesta != "s" ) {
+            println("CANCELANDO ELIMINACIÓN DE CUENTA")
+            return
+        }
+        val cuentaEliminada = usuario?.listaCuentas?.removeAt(opcion - 1)
+        println("CUENTA ELIMINADA CON EXITO "+ cuentaEliminada?.nombre)
+
     }
 
     private fun agregarCuenta() {
-        println("Ingresa el nombre de la cuenta")
+        println("INGRESA EL NOMBRE DE LA NUEVA CUENTA")
         val nombre = readln()
-        println("Ingresa el saldo inicial")
+        println("INGRESA EL SALDO INICIAL DE LA NUEVA CUENTA")
         val saldo = readln().toDouble()
         val nuevaCuenta = Cuenta(UUID.randomUUID().toString(), saldo, nombre)
         usuario?.listaCuentas?.add(nuevaCuenta)
-        println("Cuenta creada con exito")
+        println("CUENTA CREADA CON EXITO")
         println(
             """
-            Nombre: ${nuevaCuenta.nombre}
-            Saldo: ${nuevaCuenta.saldo}
-            Fecha de creacion: ${nuevaCuenta.fechaCreacion}
+            NOMBRE: ${nuevaCuenta.nombre}
+            SALDO: ${nuevaCuenta.saldo}
+            FECHA DE CREACIÓN: ${nuevaCuenta.fechaCreacion}
             
         """.trimIndent()
         )
@@ -93,22 +120,22 @@ object CuentasController {
     private fun consultaMovimientos() {
         limpiarPantalla()
         if (cuenta == null) {
-            println("No has seleccionado una cuenta")
+            println("NO HAS SELECCIONADO UNA CUENTA")
             return
         }
 
         if (cuenta?.obtenerMovimientos()?.size == 0) {
-            println("No tienes movimientos registrados")
+            println("NO HAY MOVIMIENTOS REGISTRADOS !!!!")
             return
         }
 
         cuenta?.obtenerMovimientos()?.forEach {
             println(
                 """
-                Descripcion: ${it.descripcion}
-                Monto: ${it.monto}
-                Categoria: ${it.categoria}
-                Fecha: ${it.fecha}
+                DESCRIPCIÓN: ${it.descripcion}
+                MONTO: ${it.monto}
+                CATEGORIA: ${it.categoria}
+                FECHA: ${it.fecha}
             """.trimIndent()
             )
         }
@@ -116,21 +143,21 @@ object CuentasController {
 
     private fun mostrarDetallesCuenta() {
         if (cuenta == null) {
-            println("No has seleccionado una cuenta o no tienes cuentas registradas")
+            println("NO HAS SELECCIONADO UNA CUENTA O NO TIENES CUENTAS REGISTRADAS")
             return
         }
         limpiarPantalla()
 
-        val info = """
-    ===================================
-              INFORMACIÓN            
-    ===================================
-      Nombre:           ${cuenta?.nombre}   
-      Saldo:            ${cuenta?.saldo}   
-      Fecha de creación: ${cuenta?.fechaCreacion} 
-    ===================================
-""".trimMargin()
-
+        val info =
+            """
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                            INFORMACIÓN            
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    NOMBRE:           ${cuenta?.nombre}   
+                    SALDO:            ${cuenta?.saldo}   
+                    FECHA DE CREACIÓN: ${cuenta?.fechaCreacion} 
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+""".trimIndent()
         println(info)
     }
 }
