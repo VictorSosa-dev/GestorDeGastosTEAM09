@@ -56,13 +56,16 @@ class Usuario(
     fun obtenerSaldoPrincipal(): Double {
         return listaCuentas?.get(0)?.saldo ?: 0.0
     }
+    fun getNombreCuentaPrincipal(): String {
+        return listaCuentas?.get(0)?.nombre ?: ""
+    }
 
     fun obtenerUnaCuenta(tipoMovimiento: String): Cuenta {
         try { //Excepcion si no hay cuenta
             if (listaCuentas.size > 1) {
                 println("SELECIONA LA CUENTA EN LA QUE REGISTRAS TU $tipoMovimiento:")
                 listaCuentas?.forEachIndexed { index, cuenta ->
-                    println("${index + 1}. ${cuenta.idCuenta}")
+                    println("${index + 1}. ${cuenta.nombre}")
                 }
                 print("CUENTA:")
                 var opcionCuenta = readln().toIntOrNull() ?: 0

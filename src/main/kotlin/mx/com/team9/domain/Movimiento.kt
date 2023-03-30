@@ -17,7 +17,7 @@ abstract class Movimiento(
             print("INGRESA EL MONTO DE TU $tipoMovimiento: $")
             var monto = readln()?.toDoubleOrNull() ?: 0.0
             //si el gasto es menor o igual a 0, no se puede realizar el movimiento
-            while (monto <= 0) {
+            while (monto <= 0.0) {
                 println("\nTU $tipoMovimiento DEBE SER MAYOR A 0")
                 Utilidades.limpiarPantalla()
                 print("INGRESA EL MONTO DE TU $tipoMovimiento: $")

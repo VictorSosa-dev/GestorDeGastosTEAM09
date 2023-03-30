@@ -30,7 +30,7 @@ object Utilidades {
         println()
         // Imprime un mensaje indicando que el programa se ha cargado exitosamente
         logoCashManager()
-        Thread.sleep(5000)
+        Thread.sleep(1000)
     }
 
     fun generarBarraCarga(progreso: Int, total: Int): String {
@@ -74,7 +74,7 @@ object Utilidades {
             """    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
     + BIENVENIDO CASH MANAGER: TU GESTOR DE GASTOS PERSONALES  +
     +      AUTOR TEAM 9:  CARLOS SALAZAR - EMANUEL RIVERA      +
-    +       FERNANDO NOVALES -KEVIN GORDILLO - VICTOR SOSA     +
+    +       FERNANDO NOVALES - KEVIN GORDILLO - VICTOR SOSA    +
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
                 ───────────────────────█──────────────
@@ -83,24 +83,18 @@ object Utilidades {
                 ─────██──────██▄▄▄█──▄─█─██──██──█────
                 ────▄██▄▄▄█─▄██───█──█▄█▄██─▄██──█────
                 ───────────────────────█──────────────
-                ──────────────MANAGER─────────────────
+                ──────────────MANAGER v1.00───────────
                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒""".trimIndent()
         )
+        println()
     }
 
     fun mostrarOpcionesAutenticar() {
+        inicioSistemaCashControlManager()
         println(
-            """
-    
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-    +       CASH MANAGER: TU GESTOR DE GASTOS PERSONALES       +
-    +                    CASH MANAGER                          +
-    +                       V1.00                              +
-    +                     MARZO 2023                           +
-    +                                                          +
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            """  
     ************************************************************
-    *                   ACCESO AL SISTEMA                      *
+    *                     ACCESO AL SISTEMA                    *
     *                   1.- INICIAR SESIÓN                     *
     *                   2.- REGISTRARSE                        *
     *                   3.- SALIR                              *
@@ -114,16 +108,16 @@ object Utilidades {
     fun mostrarOpcionesPrincipal(usuario: Usuario) {
         println("""
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    BIENVENIDO ${usuario.getNombre().uppercase()}
-    SALDO CUENTA PRINCIPAL:$${usuario.obtenerSaldoPrincipal()}
-    +                                                          +
+                CASH MANAGER: TU GESTOR DE GASTOS            
+                BIENVENIDO          ${usuario.getNombre().uppercase()}
+                NOMBRE CUENTA:      ${usuario.getNombreCuentaPrincipal().uppercase()}
+                SALDO CUENTA:       $${usuario.obtenerSaldoPrincipal()}                                                 
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
-    *                    MENU  PRINCIPAL                       *
-    *                  1.- REPORTES                            *
+    *                     MENU  PRINCIPAL                      *
+    *                  1.- REALIZAR MOVIMIENTOS                *
     *                  2.- MANEJO DE CUENTAS                   *
-    *                  3.- REALIZAR MOVIMIENTOS                *
+    *                  3.- REPORTES                            *
     *                  4.- SALIR DE SESION                     *
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 """.trimIndent())
@@ -134,13 +128,13 @@ object Utilidades {
     fun mostrarOpcionesMovimientos(usuario: Usuario) {
         println("""
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    BIENVENIDO ${usuario.getNombre().uppercase()}
-    SALDO CUENTA PRINCIPAL:$${usuario.obtenerSaldoPrincipal()}
-    +                                                          +
+                  CASH MANAGER: TU GESTOR DE GASTOS          
+                    BIENVENIDO      ${usuario.getNombre().uppercase()}
+                    NOMBRE CUENTA:  ${usuario.getNombreCuentaPrincipal().uppercase()}
+                    SALDO CUENTA:   $${usuario.obtenerSaldoPrincipal()}                                                        
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
-    *                 MENU DE MOVIMIENTOS                      *
+    *               MENU DE MOVIMIENTOS                        *
     *                  1.- INGRESO                             *
     *                  2.- GASTO                               *
     *                  3.- TRANSFERENCIA ENTRE MIS CUENTAS     *
@@ -149,6 +143,21 @@ object Utilidades {
     """.trimIndent())
         print("INGRESA TU OPCION Y PRESIONA ENTER:")
     }
+
+
+    //Menu inicial de cuenta,
+    fun mostrarMenuCuentas() = println(
+        """
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    *                     MENU DE CUENTAS                      *
+    *               1. CONSULTAR MOVIMIENTOS                   *
+    *               2. AGREGAR CUENTA                          *
+    *               3. CAMBIAR NOMBRE DE LA CUENTA             *
+    *               4. ELIMINAR UNA CUENTA                     *
+    *               5. REGRESAR AL MENU PRINCIPAL              *
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    """.trimIndent()
+    )
 
     fun cerrarSistema() {
         println("GRACIAS POR USAR CASH MANAGER")
@@ -165,4 +174,5 @@ object Utilidades {
             .map(charPool::get)
             .joinToString("")
     }
+
 }
