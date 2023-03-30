@@ -94,7 +94,7 @@ object Utilidades {
         println(
             """  
     ************************************************************
-    *                   ACCESO AL SISTEMA                      *
+    *                     ACCESO AL SISTEMA                    *
     *                   1.- INICIAR SESIÓN                     *
     *                   2.- REGISTRARSE                        *
     *                   3.- SALIR                              *
@@ -114,10 +114,10 @@ object Utilidades {
                 SALDO CUENTA:       $${usuario.obtenerSaldoPrincipal()}                                                 
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
-    *                    MENU  PRINCIPAL                       *
-    *                  1.- REPORTES                            *
+    *                     MENU  PRINCIPAL                      *
+    *                  1.- REALIZAR MOVIMIENTOS                *
     *                  2.- MANEJO DE CUENTAS                   *
-    *                  3.- REALIZAR MOVIMIENTOS                *
+    *                  3.- REPORTES                            *
     *                  4.- SALIR DE SESION                     *
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 """.trimIndent())
@@ -128,13 +128,13 @@ object Utilidades {
     fun mostrarOpcionesMovimientos(usuario: Usuario) {
         println("""
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                    CASH MANAGER: TU GESTOR DE GASTOS          
+                  CASH MANAGER: TU GESTOR DE GASTOS          
                     BIENVENIDO      ${usuario.getNombre().uppercase()}
                     NOMBRE CUENTA:  ${usuario.getNombreCuentaPrincipal().uppercase()}
                     SALDO CUENTA:   $${usuario.obtenerSaldoPrincipal()}                                                        
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
-    *                 MENU DE MOVIMIENTOS                      *
+    *               MENU DE MOVIMIENTOS                        *
     *                  1.- INGRESO                             *
     *                  2.- GASTO                               *
     *                  3.- TRANSFERENCIA ENTRE MIS CUENTAS     *
@@ -152,8 +152,9 @@ object Utilidades {
     *                     MENU DE CUENTAS                      *
     *               1. CONSULTAR MOVIMIENTOS                   *
     *               2. AGREGAR CUENTA                          *
-    *               3. ELIMINAR UNA CUENTA                     *
-    *               4. REGRESAR AL MENU PRINCIPAL              *
+    *               3. CAMBIAR NOMBRE DE LA CUENTA             *
+    *               4. ELIMINAR UNA CUENTA                     *
+    *               5. REGRESAR AL MENU PRINCIPAL              *
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     """.trimIndent()
     )
@@ -173,4 +174,5 @@ object Utilidades {
             .map(charPool::get)
             .joinToString("")
     }
+
 }

@@ -1,8 +1,10 @@
 package mx.com.team9.controllers
 
+import kotlinx.coroutines.delay
 import mx.com.team9.domain.Usuario
 import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.mostrarOpcionesPrincipal
+import java.lang.Thread.sleep
 
 object SistemaPrincipalController {
     lateinit var usuario: Usuario
@@ -13,14 +15,15 @@ object SistemaPrincipalController {
             mostrarOpcionesPrincipal(usuario)
             var opcion = readln().toIntOrNull() ?: 0
             when (opcion) {
-                1 -> { // reportes  -> resumen mensual, ultimos movimientos
-
+                1 -> { // Realizar movimientos -> ingreso, gasto, transferencia
+                    sleep(1000)
+                    MovimientosController.seleccionarMovimiento(usuario)
                 }
                 // Manejo de cuentas -> consultar saldo, consultar movimientos, agregar cuenta, eliminar cuenta
                 2 -> CuentasController.manejoCuentas(usuario)
 
-                3 -> { // Realizar movimientos -> ingreso, gasto, transferencia
-                    MovimientosController.seleccionarMovimiento(usuario)
+                3 -> { // REPORTES
+                   println("REPORTES DE USUARIO")
                 }
 
                 4 -> { // DELOGUERASE

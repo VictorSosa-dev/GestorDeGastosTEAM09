@@ -2,7 +2,6 @@ package mx.com.team9.mocks
 
 import mx.com.team9.domain.Cuenta
 import mx.com.team9.domain.Usuario
-import mx.com.team9.utils.Utilidades
 
 class Mock {
 

@@ -5,6 +5,7 @@ import mx.com.team9.domain.Cuenta
 import mx.com.team9.domain.Usuario
 import mx.com.team9.utils.Utilidades.limpiarPantalla
 import mx.com.team9.utils.Utilidades.mostrarMenuCuentas
+import java.lang.Thread.sleep
 import java.util.UUID
 
 object CuentasController {
@@ -54,10 +55,14 @@ object CuentasController {
                 }
 
                 3 -> {
+                    editarCuenta()
+                }
+
+                4 ->{
                     eliminarCuenta()
                 }
 
-                4 -> {
+                5 -> {
                     println("REGRESANDO AL MENU PRINCIPAL......")
                     Thread.sleep(1000)
                     SistemaPrincipalController.sistemaPrincipal(usuario)
@@ -66,8 +71,40 @@ object CuentasController {
                     println("OPCIÓN NO VALIDA")
                 }
             }
-        } while (opcion != 4)
+        } while (opcion != 5)
 
+    }
+
+    private fun editarCuenta() {
+        // Si solo tiene una cuenta, se edita automaticamente
+        if (usuario?.listaCuentas?.size == 1) {
+            cuenta = usuario?.listaCuentas?.get(0)
+            println("EDITANDO CUENTA ${cuenta?.nombre}")
+            pedirDatosCuenta()
+            return
+        }
+
+        // Seleccionar la cuenta a editar
+        println("ESTAS SON TUS CUENTAS REGISTRADAS")
+        usuario?.listaCuentas?.forEachIndexed { index, cuenta ->
+            println("${index + 1}. ${cuenta.nombre}")
+        }
+        println("SELECCIONA UNA CUENTA: ")
+        val opcion = readln().toInt()
+        cuenta = usuario?.listaCuentas?.get(opcion - 1)
+        pedirDatosCuenta()
+    }
+
+    private fun pedirDatosCuenta() {
+        print("INGRESA EL NUEVO NOMBRE DE LA CUENTA:")
+        val nombre = readln()?: ""
+        while (nombre.isEmpty()) {
+            println("NOMBRE NO VALIDO")
+            return
+        }
+        cuenta?.nombre = nombre
+        println("CUENTA EDITADA CON EXITO")
+        println(" NOMBRE DE LA CUENTA: ${cuenta?.nombre}" )
     }
 
     private fun eliminarCuenta() {
@@ -100,9 +137,9 @@ object CuentasController {
     }
 
     private fun agregarCuenta() {
-        println("INGRESA EL NOMBRE DE LA NUEVA CUENTA")
+        println("INGRESA EL NOMBRE DE LA NUEVA CUENTA:")
         val nombre = readln()
-        println("INGRESA EL SALDO INICIAL DE LA NUEVA CUENTA")
+        println("INGRESA EL SALDO INICIAL DE LA NUEVA CUENTA:")
         val saldo = readln().toDouble()
         val nuevaCuenta = Cuenta(UUID.randomUUID().toString(), saldo, nombre)
         usuario?.listaCuentas?.add(nuevaCuenta)
@@ -115,6 +152,7 @@ object CuentasController {
             
         """.trimIndent()
         )
+        sleep(2000)
     }
 
     private fun consultaMovimientos() {
@@ -129,16 +167,25 @@ object CuentasController {
             return
         }
 
+        print("""
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    MOVIMIENTOS DE LA CUENTA ${cuenta?.nombre?.uppercase()}
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        """.trimIndent()
+        )
+        println()
         cuenta?.obtenerMovimientos()?.forEach {
             println(
                 """
-                DESCRIPCIÓN: ${it.descripcion}
-                MONTO: ${it.monto}
-                CATEGORIA: ${it.categoria}
-                FECHA: ${it.fecha}
+                        DESCRIPCIÓN:    ${it.descripcion}
+                        MONTO:          ${it.monto}
+                        CATEGORIA:      ${it.categoria}
+                        FECHA:          ${it.fecha.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"))}
             """.trimIndent()
             )
+            println("------------------------------------------------------------")
         }
+        println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     }
 
     private fun mostrarDetallesCuenta() {
@@ -151,11 +198,11 @@ object CuentasController {
         val info =
             """
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                            INFORMACIÓN            
+                       INFORMACIÓN DE LA CUENTA         
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                    NOMBRE:           ${cuenta?.nombre}   
+                    NOMBRE:           ${cuenta?.nombre?.uppercase()}   
                     SALDO:            ${cuenta?.saldo}   
-                    FECHA DE CREACIÓN: ${cuenta?.fechaCreacion} 
+                    FECHA DE CREACIÓN: ${cuenta?.fechaCreacion?.format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy"))} 
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 """.trimIndent()
         println(info)

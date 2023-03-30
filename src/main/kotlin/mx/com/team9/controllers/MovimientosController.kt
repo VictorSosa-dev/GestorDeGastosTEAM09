@@ -9,8 +9,9 @@ object MovimientosController {
     lateinit var cuentaSeleccionada: Cuenta
 
     fun seleccionarMovimiento(usuario: Usuario) {
-        mostrarOpcionesMovimientos(usuario)
+        //mostrarOpcionesMovimientos(usuario)
         do {
+            mostrarOpcionesMovimientos(usuario)
             val opcion = readln()?.toIntOrNull() ?: 0
             when (opcion) {
                 1 -> { // MOVIMIENTO: INGRESO
@@ -128,7 +129,7 @@ object MovimientosController {
                     Utilidades.limpiarPantalla()
                 }
             }
-            mostrarOpcionesMovimientos(usuario)
+
         } while (opcion != 3)
     }
 }

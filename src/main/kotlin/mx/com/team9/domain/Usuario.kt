@@ -65,7 +65,7 @@ class Usuario(
             if (listaCuentas.size > 1) {
                 println("SELECIONA LA CUENTA EN LA QUE REGISTRAS TU $tipoMovimiento:")
                 listaCuentas?.forEachIndexed { index, cuenta ->
-                    println("${index + 1}. ${cuenta.idCuenta}")
+                    println("${index + 1}. ${cuenta.nombre}")
                 }
                 print("CUENTA:")
                 var opcionCuenta = readln().toIntOrNull() ?: 0

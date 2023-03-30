@@ -15,7 +15,7 @@ class Ingreso(
 
     override fun actualizarSaldo(): Boolean {
         println("INICIANDO TRANSACCION")
-        println("CONECTANDO CON CUENTA ${cuenta.idCuenta}")
+        println("CONECTANDO CON CUENTA ${cuenta.nombre}")
         (1..5).forEach {
             Thread.sleep(500)
             print("█")
