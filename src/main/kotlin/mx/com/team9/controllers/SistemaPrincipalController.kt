@@ -1,17 +1,19 @@
 package mx.com.team9.controllers
 
+import kotlinx.coroutines.delay
 import mx.com.team9.domain.Usuario
+import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.mostrarOpcionesPrincipal
+import java.lang.Thread.sleep
 
 object SistemaPrincipalController {
     lateinit var usuario: Usuario
     //Logica de Manejo de Cuenta
-    fun manejoCuenta(usuario: Usuario) {
+    fun sistemaPrincipal(usuario: Usuario) {
         this.usuario = usuario
-
-        mostrarOpcionesPrincipal()
-        var opcion = readln().toInt()
         do {
+            mostrarOpcionesPrincipal(usuario)
+            var opcion = readln().toIntOrNull() ?: 0
             when (opcion) {
                 1 -> { // reportes  -> resumen mensual, ultimos movimientos, por categorias
                     val contraladorReportes = ReportesController(usuario)
@@ -22,23 +24,25 @@ object SistemaPrincipalController {
                 2 -> { // manejo de cuentas -> crear cuenta, editar cuenta, eliminar cuenta
 
                 }
+                // Manejo de cuentas -> consultar saldo, consultar movimientos, agregar cuenta, eliminar cuenta
+                2 -> CuentasController.manejoCuentas(usuario)
 
-                3 -> { // Realizar movimientos -> ingreso, gasto, transferencia
-                    val contraladorMovimientos = MovimientosController(usuario)
-                    contraladorMovimientos.seleccionarMovimiento()
+                3 -> { // REPORTES
+                   println("REPORTES DE USUARIO")
                 }
 
-                4 -> { // desloguearse
-
+                4 -> { // DELOGUERASE
+                    println("DESLOGUEANDO")
+                    Utilidades.limpiarPantalla()
+                    AutenticacionController.menuAutenticacion()
                 }
 
                 else -> {
-                    println("Opcion no valida")
+                    println("POR FAVOR, INGRESE UNA OPCION VALIDA")
+                    Thread.sleep(1000)
+                    Utilidades.limpiarPantalla()
                 }
             }
         } while (opcion != 4)
     }
-
-
-
 }
