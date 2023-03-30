@@ -9,6 +9,7 @@ import kotlin.system.exitProcess
 object Utilidades {
     //Funcion para limpiar la pantalla
     fun limpiarPantalla() {
+        Thread.sleep(1000)
         println("\u001b[H\u001b[2J")
     }
 
@@ -51,24 +52,21 @@ object Utilidades {
     fun ingresarDineroAscii() {
         println(
             """                                              
-            ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    
-            ▒▒▓▓░░                          ░░▓▓▓▓    
-            ▒▒▓▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░  ▓▓▓▓    
-            ▒▒▓▓▓▓▒▒░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓    
-                    ░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒          
-                    ▒▒▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓▓▓▓▓          
-                    ▒▒▓▓▓▓▓▓  ░░▓▓  ░░▓▓▓▓▓▓          
-                    ▓▓▓▓▓▓▓▓    ▒▒▓▓▓▓▓▓▓▓▓▓          
-                    ▓▓▓▓▓▓▓▓▓▓▒▒░░  ░░▓▓▓▓▓▓          
-                ░░▓▓▓▓▓▓▓▓  ░░▓▓░░  ▓▓▓▓▓▓          
-                ░░▓▓▓▓▓▓▓▓▒▒░░  ░░▓▓▓▓▓▓▓▓          
-                ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░        
-                ▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░        
-                ▒▒░░▓▓▓▓░░▓▓▒▒░░▓▓▓▓▒▒▓▓▓▓▒▒        
-                            ░░    ▒▒▓▓  ▒▒            
-                                              
-""".trimIndent()
-        )
+▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    
+▒▒▓▓░░                          ░░▓▓▓▓    
+▒▒▓▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░  ▓▓▓▓    
+▒▒▓▓▓▓▒▒░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓    
+        ░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒          
+        ▒▒▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓▓▓▓▓          
+        ▒▒▓▓▓▓▓▓  ░░▓▓  ░░▓▓▓▓▓▓          
+        ▓▓▓▓▓▓▓▓    ▒▒▓▓▓▓▓▓▓▓▓▓        .
+        ▓▓▓▓▓▓▓▓▓▓▒▒░░  ░░▓▓▓▓▓▓      .:;:.  
+    ░░▓▓▓▓▓▓▓▓  ░░▓▓░░  ▓▓▓▓▓▓      .:;;;;;:.
+    ░░▓▓▓▓▓▓▓▓▒▒░░  ░░▓▓▓▓▓▓▓▓        ;;;;;  
+    ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░      ;;;;;  
+    ▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░      ;;;;;  
+    ▒▒░░▓▓▓▓░░▓▓▒▒░░▓▓▓▓▒▒▓▓▓▓▒▒      ;;;;;                                      
+""".trimIndent())
     }
 
     fun logoCashManager() {
@@ -107,8 +105,8 @@ object Utilidades {
     }
 
     //Menu inicial de cuenta,
-    fun mostrarOpcionesPrincipal(usuario: Usuario) = println(
-        """
+    fun mostrarOpcionesPrincipal(usuario: Usuario) {
+        println("""
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 CASH MANAGER: TU GESTOR DE GASTOS            
                 BIENVENIDO          ${usuario.getNombre().uppercase()}
@@ -121,11 +119,14 @@ object Utilidades {
     *                  2.- MANEJO DE CUENTAS                   *
     *                  3.- REALIZAR MOVIMIENTOS                *
     *                  4.- SALIR DE SESION                     *
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+""".trimIndent())
+    print("INGRESA TU OPCION Y PRESIONA ENTER:")
+    }
 
     //Menu inicial de cuenta,
-    fun mostrarOpcionesMovimientos(usuario: Usuario) = println(
-        """
+    fun mostrarOpcionesMovimientos(usuario: Usuario) {
+        println("""
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                     CASH MANAGER: TU GESTOR DE GASTOS          
                     BIENVENIDO      ${usuario.getNombre().uppercase()}
@@ -134,11 +135,14 @@ object Utilidades {
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                 MENU DE MOVIMIENTOS                      *
-    *                  1.- INGRESOS                            *
-    *                  2.- GASTOS                              *
-    *                  3.- TRANSFERENCIAS                      *
+    *                  1.- INGRESO                             *
+    *                  2.- GASTO                               *
+    *                  3.- TRANSFERENCIA ENTRE MIS CUENTAS     *
     *                  4.- ATRAS                               *
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    """.trimIndent())
+        print("INGRESA TU OPCION Y PRESIONA ENTER:")
+    }
 
 
     //Menu inicial de cuenta,
@@ -155,7 +159,7 @@ object Utilidades {
     )
 
     fun cerrarSistema() {
-        println("GRACIAS POR USAR CASH MANAGER\n")
+        println("GRACIAS POR USAR CASH MANAGER")
         println("VUELVE PRONTO")
         Thread.sleep(2000)
         exitProcess(0)
@@ -163,7 +167,7 @@ object Utilidades {
 
     //Funcion para generar un ID unico para cuentas y movimientos
     fun generadorIDUnico(longitud: Int): String {
-        val charPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+        val charPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return (1..longitud)
             .map { Random.nextInt(0, charPool.length) }
             .map(charPool::get)

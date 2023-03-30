@@ -17,8 +17,7 @@ object AutenticacionController {
     // se podra hacer esta funcion lambda, y si el usuario ingresa correctamente, aceptar otra funcion
     // tipo menuPrincipal?
     //val autenticacion: (Unit) -> Boolean =  {
-    fun menuAutenticacion(): Boolean {
-        var _salida = false
+    fun menuAutenticacion() {
         do {
             mostrarOpcionesAutenticar()
             // evitar que el usuario ingrese un valor no numerico
@@ -26,16 +25,14 @@ object AutenticacionController {
             when (opcion) {
                 1 -> ingresar()
                 2 -> registrarse()
-                3 -> _salida = true
+                3 -> cerrarSistema()
                 else -> {
                     println("POR FAVOR, INGRESE UNA OPCION VALIDA")
                     Thread.sleep(1000)
                     limpiarPantalla()
                 }
             }
-        } while (!_salida)
-        cerrarSistema()
-        return false
+        } while (opcion != 3)
     }
 
     // Funcion para iniciar sesion con validacion de usuario y contraseña

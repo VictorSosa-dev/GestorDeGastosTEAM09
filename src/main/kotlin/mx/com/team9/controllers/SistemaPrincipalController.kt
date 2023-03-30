@@ -9,14 +9,11 @@ object SistemaPrincipalController {
     //Logica de Manejo de Cuenta
     fun sistemaPrincipal(usuario: Usuario) {
         this.usuario = usuario
-
-        mostrarOpcionesPrincipal(usuario)
-        println("Selecciona una opcion:")
-        var opcion = readln().toInt()
         do {
+            mostrarOpcionesPrincipal(usuario)
+            var opcion = readln().toIntOrNull() ?: 0
             when (opcion) {
                 1 -> { // reportes  -> resumen mensual, ultimos movimientos
-
 
                 }
                 // Manejo de cuentas -> consultar saldo, consultar movimientos, agregar cuenta, eliminar cuenta
@@ -27,21 +24,17 @@ object SistemaPrincipalController {
                 }
 
                 4 -> { // DELOGUERASE
-                    println("¿SEGURO QUE DESEA DESLOGUEARSE? (S/N)")
-                    val respuesta = readln()
-                    if (respuesta == "S" || respuesta == "s") {
-                        println("DESLOGUEANDO")
-                        Thread.sleep(1000)
-                        Utilidades.limpiarPantalla()
-                        AutenticacionController.menuAutenticacion()
-                    }
+                    println("DESLOGUEANDO")
+                    Utilidades.limpiarPantalla()
+                    AutenticacionController.menuAutenticacion()
                 }
 
                 else -> {
-                    println("OPCION NO VALIDA")
+                    println("POR FAVOR, INGRESE UNA OPCION VALIDA")
+                    Thread.sleep(1000)
+                    Utilidades.limpiarPantalla()
                 }
             }
         } while (opcion != 4)
     }
-
 }
