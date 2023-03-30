@@ -20,6 +20,8 @@ class Ingreso(
             Thread.sleep(500)
             print("█")
         }
+        print("☑")
+        println()
         cuenta.saldo += monto
         return true
     }

@@ -13,7 +13,7 @@ abstract class Movimiento(
 ) {
 
     companion object {
-        fun registrarMonto(tipoMovimiento: String): Double {
+        fun validarMonto(tipoMovimiento: String): Double {
             print("INGRESA EL MONTO DE TU $tipoMovimiento: $")
             var monto = readln()?.toDoubleOrNull() ?: 0.0
             //si el gasto es menor o igual a 0, no se puede realizar el movimiento

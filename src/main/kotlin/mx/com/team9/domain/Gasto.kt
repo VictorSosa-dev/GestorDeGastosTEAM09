@@ -14,7 +14,7 @@ class Gasto(
     categoria: Categoria
 ) : Movimiento(cuenta, monto, descipcion, categoria) {
 
-    override val idMovimiento: String = "ING-${cuenta.idCuenta}-${LocalDateTime.now()}"
+    override val idMovimiento: String = "GAST-${cuenta.idCuenta}-${LocalDateTime.now()}"
     override val fecha: LocalDateTime = LocalDateTime.now()
 
     //Esta funcion puede ser una corutina TODO: POSIBLE IMPLEMENTACION CORUTINA
@@ -25,6 +25,8 @@ class Gasto(
             Thread.sleep(500)
             print("█")
         }
+        println("☑")
+        println()
         cuenta.saldo -= monto
         return true
     }

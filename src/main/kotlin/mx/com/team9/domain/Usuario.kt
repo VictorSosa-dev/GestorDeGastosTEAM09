@@ -60,10 +60,11 @@ class Usuario(
     fun obtenerUnaCuenta(tipoMovimiento: String): Cuenta {
         try { //Excepcion si no hay cuenta
             if (listaCuentas.size > 1) {
-                println("SELECIONA LA CUENTA A LA QUE QUIERES REGISTRAR EN TU $tipoMovimiento:")
+                println("SELECIONA LA CUENTA EN LA QUE REGISTRAS TU $tipoMovimiento:")
                 listaCuentas?.forEachIndexed { index, cuenta ->
                     println("${index + 1}. ${cuenta.idCuenta}")
                 }
+                print("CUENTA:")
                 var opcionCuenta = readln().toIntOrNull() ?: 0
                 //Si la cuenta no es valida, no se puede realizar el movimiento
                 while (opcionCuenta !in 1..listaCuentas.size) {

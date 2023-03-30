@@ -15,19 +15,15 @@ enum class Categoria(val idCategoria: Int, val descripcion: String) {
     COMPRAS_ONLINE(7, "ADQUISICIONES DIGITALES"),
     SALUD(8, "SERVICIOS MÉDICOS"),
     VIAJES(9, " VACACIONES Y EXCURSIONES"),
-    VIATICOS(10, " GASTOS LABORALES"),
-    TRANSPORTE(11, "MOVILIDAD URBANA"),
-    IMPUESTOS(12, "PAGOS GUBERNAMENTALES"),
-    EDUCACION(13, " FORMACIÓN ACADÉMICA"),
-    AHORRO(14, "GUARDAR DINERO"),
-    EJERCICIO(15, "GIMNASIOS, CLUBES Y DEPORTES"),
-    MASCOTAS(16, "CUIDADO ANIMAL"),
-    SERVICIOS_PUBLICOS(17, " SUMINISTROS BÁSICOS"),
-    COMUNICACIONES(18, "COMUNICACIÓN MÓVIL"),
-    SUSCRIPCIONES(19, "PAGOS PERIÓDICOS"),
-    DONACIONES(20, "DONACIONES Y AYUDAS"),
-    DEUDAS_PRESTAMOS(21, "PAGOS DE CRÉDITOS"),
-    OTROS(22, "GASTOS DIVERSOS");
+    TRANSPORTE(10, "MOVILIDAD URBANA"),
+    EDUCACION(11, " FORMACIÓN ACADÉMICA"),
+    EJERCICIO(12, "GIMNASIOS, CLUBES Y DEPORTES"),
+    SERVICIOS_PUBLICOS(13, " SUMINISTROS BÁSICOS"),
+    COMUNICACIONES(14, "COMUNICACIÓN MÓVIL"),
+    SUSCRIPCIONES(15, "PAGOS PERIÓDICOS"),
+    DONACIONES(16, "DONACIONES Y AYUDAS"),
+    DEUDAS_PRESTAMOS(17, "PAGOS DE CRÉDITOS"),
+    OTROS(18, "GASTOS DIVERSOS");
 
     companion object {
         fun mostrarCategorias() = runBlocking{
@@ -36,6 +32,7 @@ enum class Categoria(val idCategoria: Int, val descripcion: String) {
                 print(".")
                 delay(1000)
             }
+            println()
             for(categoria in values())
                 println("${categoria.idCategoria}. ${categoria.name}: ${categoria.descripcion}")
         }
@@ -43,6 +40,7 @@ enum class Categoria(val idCategoria: Int, val descripcion: String) {
         fun seleccionarCategoria(tipoMovimiento: String): Categoria {
             println("SELECCIONA UNA CATEGORIA DE TU $tipoMovimiento")
             mostrarCategorias()
+            print("CATEGORIA: ")
             var idCategoria = readln()?.toIntOrNull() ?: 0
             while (idCategoria !in 1..values().size) {
                 println("LA CATEGORIA SELECCIONADA NO EXISTE")

@@ -9,10 +9,9 @@ object SistemaPrincipalController {
     //Logica de Manejo de Cuenta
     fun sistemaPrincipal(usuario: Usuario) {
         this.usuario = usuario
-
-        mostrarOpcionesPrincipal(usuario)
-        var opcion = readln().toInt()
         do {
+            mostrarOpcionesPrincipal(usuario)
+            var opcion = readln().toIntOrNull() ?: 0
             when (opcion) {
                 1 -> { // reportes  -> resumen mensual, ultimos movimientos
 1
