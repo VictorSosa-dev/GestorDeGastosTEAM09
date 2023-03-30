@@ -27,17 +27,15 @@ object SistemaPrincipalController {
                 }
 
                 4 -> { // DELOGUERASE
-                    println("¿SEGURO QUE DESEA DESLOGUEARSE? (S/N)")
-                    val respuesta = readln()
-                    if (respuesta == "S" || respuesta == "s") {
-                        println("DESLOGUEANDO")
-                        Utilidades.limpiarPantalla()
-                        AutenticacionController.menuAutenticacion()
-                    }
+                    println("DESLOGUEANDO")
+                    Utilidades.limpiarPantalla()
+                    AutenticacionController.menuAutenticacion()
                 }
 
                 else -> {
-                    println("OPCION NO VALIDA")
+                    println("POR FAVOR, INGRESE UNA OPCION VALIDA")
+                    Thread.sleep(1000)
+                    Utilidades.limpiarPantalla()
                 }
             }
         } while (opcion != 4)

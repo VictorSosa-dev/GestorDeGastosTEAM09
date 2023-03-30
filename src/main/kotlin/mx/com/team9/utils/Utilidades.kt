@@ -151,7 +151,7 @@ object Utilidades {
     }
 
     fun cerrarSistema() {
-        println("GRACIAS POR USAR CASH MANAGER\n")
+        println("GRACIAS POR USAR CASH MANAGER")
         println("VUELVE PRONTO")
         Thread.sleep(2000)
         exitProcess(0)
