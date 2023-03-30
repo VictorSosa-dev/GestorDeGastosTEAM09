@@ -159,6 +159,21 @@ object Utilidades {
     """.trimIndent()
     )
 
+    fun mostrarOpcionesReportes(usuario: Usuario) = println(
+        """
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
+    +         BIENVENIDO ${usuario.getNombre().uppercase()}    + 
+    +SALDO CUENTA PRINCIPAL:${usuario.obtenerSaldoPrincipal()} +
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ************************************************************
+    *                 MENU DE REPORTES                         *
+    *                  1.- RESUMEN MENSUAL                             *
+    *                  2.- ULTIMOS MOVIMIENTOS                 *
+    *                  3.- CATEGORIAS                          *
+    *                  4.- ATRAS                               *
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
+
     fun cerrarSistema() {
         println("GRACIAS POR USAR CASH MANAGER")
         println("VUELVE PRONTO")
