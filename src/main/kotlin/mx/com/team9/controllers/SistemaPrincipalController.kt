@@ -13,8 +13,9 @@ object SistemaPrincipalController {
         var opcion = readln().toInt()
         do {
             when (opcion) {
-                1 -> { // reportes  -> resumen mensual, ultimos movimientos
-
+                1 -> { // reportes  -> resumen mensual, ultimos movimientos, por categorias
+                    val contraladorReportes = ReportesController(usuario)
+                    contraladorReportes.seleccionarReporte()
 
                 }
 
