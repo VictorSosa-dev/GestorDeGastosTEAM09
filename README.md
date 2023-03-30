@@ -1,7 +1,15 @@
 # Gestor de gastos
 
-## Descripción
+### Integrantes Team 9 🧑🏻‍💻
+ - [Victor Manuel Sosa](https://github.com/VictorSosa-dev)
+ - [Kevin Gordillo](https://github.com/Kef131)
+ - [Fernando Novales](https://github.com/Itzamango)
+ - [Carlos Salazar](https://github.com/Hancss)
+ - [Emanuel River](https://github.com/Emanuel8904)
 
+[Link del Notion](https://kef.notion.site/Gestor-de-Gastos-Personales-BEDU-Team9-b6dead4840ac47be8a2838afdbbf246f)
+
+## Descripción
 Proyecto Cash Manager
 
 Definición del proyecto:
