@@ -67,15 +67,19 @@ Seleccionar una de las opciones del menú principal y seguir las instrucciones q
 
 ## Contribuidores
 
-- [Victor Sosa](https://www.github.com/VictorSosa-dev)
-
+- [Victor Sosa](https://www.github.com/VictorSosa-dev) 
+  - [linkendin](https://www.linkedin.com/in/victorsosa-dev/)
+  
 -  [Kevin Gordillo](https://github.com/Kef131)
 
 -  [Emanuel River](https://github.com/gerhercar21)
+   
 
 -  [Carlos Salazar](https://github.com/EduCastilloHerrera)
+   - [linkendin](https://www.linkedin.com/in/cssmx/)   
 
 -  [Fernando Novales](https://github.com/ElMandu)
+  - [linkendin](https://www.linkedin.com/in/itzama/)
 
 
 Proyecto fase 2 del curso de Kotlin de BEDU en coloboración con Santander. Equipo 9.
