@@ -1,5 +1,5 @@
 # Default ignored files
-/shelf/
+/.idea/shelf/
 /workspace.xml
 .DS_Store
 .idea/shelf
@@ -77,6 +77,8 @@ local.properties
 buildSrcTmp/
 distTmp/
 outTmp/
+/out
 /test.output
 /kotlin-native/dist
 kotlin-ide/
+/out/

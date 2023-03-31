@@ -1,14 +1,3 @@
-import mx.com.team9.utils.Menu
+import mx.com.team9.controllers.AutenticacionController
 
-fun main(args: Array<String>) {
-
-    //Aqui se ejectuara el programa principal y se instanciaran las principales clases
-
-    //Mostrar menu de autenticacion
-
-    //Menu de operacion de cuenta
-
-    val menu = Menu()
-    menu.showMenu()
-
-}
+fun main() = AutenticacionController.menuAutenticacion()
