@@ -14,7 +14,7 @@ object Utilidades {
     }
 
     fun inicioSistemaCashControlManager() {
-        println("Iniciando Cash Manager")
+        println("INICIANDO CASH MANAGER")
 
         val maxCarga = 100 // Valor máximo de la carga
         val incremento = 5 // Incremento de la carga en cada iteración
@@ -23,7 +23,7 @@ object Utilidades {
         // Bucle que recorre desde 0 hasta maxCarga con un incremento en cada iteración
         for (i in 0..maxCarga step incremento) {
             // Imprime la barra de carga y el porcentaje de progreso
-            print("\rCargando: ${generarBarraCarga(i, maxCarga)} $i% ")
+            print("\rCARGANDO: ${generarBarraCarga(i, maxCarga)} $i% ")
             // Pausa la ejecución por la duración definida en duracionTimer
             Thread.sleep(duracionTimer)
         }
@@ -148,7 +148,7 @@ object Utilidades {
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                 MENU DE REPORTES                         *
-    *                  1.- RESUMEN MENSUAL                             *
+    *                  1.- RESUMEN MENSUAL                     *
     *                  2.- ULTIMOS MOVIMIENTOS                 *
     *                  3.- CATEGORIAS                          *
     *                  4.- ATRAS                               *

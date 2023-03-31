@@ -46,7 +46,7 @@ object CuentasController {
             mostrarDetallesCuenta()
             mostrarMenuCuentas()
             println("SELECCIONA UNA OPCIÓN: ")
-            var opcion = readln().toInt()
+            var opcion = readln().toIntOrNull()?: -1
             when (opcion) {
                 1 -> consultaMovimientos()
 

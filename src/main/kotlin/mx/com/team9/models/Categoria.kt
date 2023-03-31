@@ -39,7 +39,7 @@ enum class Categoria(val idCategoria: Int, val descripcion: String) {
         }
 
         fun seleccionarCategoria(tipoMovimiento: String): Categoria {
-            println("SELECCIONA UNA CATEGORIA DE TU $tipoMovimiento")
+            println("SELECCIONA UNA CATEGORIA PARA TU $tipoMovimiento")
             mostrarCategorias()
             print("CATEGORIA: ")
             var idCategoria = readln()?.toIntOrNull() ?: 0
