@@ -22,7 +22,7 @@
  - [Carlos Salazar](https://github.com/Hancss)
  - [Emanuel Rivera](https://github.com/Emanuel8904)
 
-[Documentación del proyecto / Administracion Interna](https://kef.notion.site/Gestor-de-Gastos-Personales-BEDU-Team9-b6dead4840ac47be8a2838afdbbf246f)
+[Reporte Final de Proyecto Fase 2 - Cash Manager EQUIPO 9](https://docs.google.com/document/d/11kGXS-EZc_cgDT2RWX5sTDQhU8ldMQBH-yQ082nhVUI/edit?usp=share_link)
 
 
 
@@ -104,7 +104,7 @@ Para hacer uso de los datos precargardos y probar las funcionalidades del sistem
 
 ## Documentación
 
-[Documentación del proyecto](https://kef.notion.site/Proyecto-Gestor-de-Gastos-Personales-BEDU-Team9-b6dead4840ac47be8a2838afdbbf246f)
+[Documentación y Administracion Interna del Equipo](https://kef.notion.site/Proyecto-Gestor-de-Gastos-Personales-BEDU-Team9-b6dead4840ac47be8a2838afdbbf246f)
 
 [Documento Final Fase 2 BEDU- Reporte Final ](https://docs.google.com/document/d/11kGXS-EZc_cgDT2RWX5sTDQhU8ldMQBH-yQ082nhVUI/edit?usp=share_link)
 
