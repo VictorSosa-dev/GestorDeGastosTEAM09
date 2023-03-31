@@ -14,9 +14,7 @@ object AutenticacionController {
     val mock = Mock()
     private val listaUsuarios = mock.mockData()
 
-    // se podra hacer esta funcion lambda, y si el usuario ingresa correctamente, aceptar otra funcion
-    // tipo menuPrincipal?
-    //val autenticacion: (Unit) -> Boolean =  {
+    // Menu de autenticacion al sistema
     fun menuAutenticacion() {
         do {
             mostrarOpcionesAutenticar()

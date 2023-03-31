@@ -49,26 +49,6 @@ object Utilidades {
                 "]"
     }
 
-    fun ingresarDineroAscii() {
-        println(
-            """                                              
-▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    
-▒▒▓▓░░                          ░░▓▓▓▓    
-▒▒▓▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░  ▓▓▓▓    
-▒▒▓▓▓▓▒▒░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓    
-        ░░▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒          
-        ▒▒▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓▓▓▓▓          
-        ▒▒▓▓▓▓▓▓  ░░▓▓  ░░▓▓▓▓▓▓          
-        ▓▓▓▓▓▓▓▓    ▒▒▓▓▓▓▓▓▓▓▓▓        .
-        ▓▓▓▓▓▓▓▓▓▓▒▒░░  ░░▓▓▓▓▓▓      .:;:.  
-    ░░▓▓▓▓▓▓▓▓  ░░▓▓░░  ▓▓▓▓▓▓      .:;;;;;:.
-    ░░▓▓▓▓▓▓▓▓▒▒░░  ░░▓▓▓▓▓▓▓▓        ;;;;;  
-    ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░      ;;;;;  
-    ▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░      ;;;;;  
-    ▒▒░░▓▓▓▓░░▓▓▒▒░░▓▓▓▓▒▒▓▓▓▓▒▒      ;;;;;                                      
-""".trimIndent())
-    }
-
     fun logoCashManager() {
         print(
             """    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
@@ -109,9 +89,9 @@ object Utilidades {
         println("""
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 CASH MANAGER: TU GESTOR DE GASTOS            
-                BIENVENIDO          ${usuario.getNombre().uppercase()}
-                NOMBRE CUENTA:      ${usuario.getNombreCuentaPrincipal().uppercase()}
-                SALDO CUENTA:       $${usuario.obtenerSaldoPrincipal()}                                                 
+                    BIENVENIDO          ${usuario.getNombre().uppercase()}
+                    NOMBRE CUENTA:      ${usuario.getNombreCuentaPrincipal().uppercase()}
+                    SALDO CUENTA:       $${usuario.obtenerSaldoPrincipal()}                                                 
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                     MENU  PRINCIPAL                      *
@@ -159,12 +139,13 @@ object Utilidades {
     """.trimIndent()
     )
 
-    fun mostrarOpcionesReportes(usuario: Usuario) = println(
+    fun mostrarMenuReportes(usuario: Usuario) = println(
         """
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    +             CASH MANAGER: A TU GESTOR DE GASTOS          +
-    +         BIENVENIDO ${usuario.getNombre().uppercase()}    + 
-    +SALDO CUENTA PRINCIPAL:${usuario.obtenerSaldoPrincipal()} +
+   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                 CASH MANAGER: TU GESTOR DE GASTOS          
+                   BIENVENIDO      ${usuario.getNombre().uppercase()}
+                   NOMBRE CUENTA:  ${usuario.getNombreCuentaPrincipal().uppercase()}
+                   SALDO CUENTA:   ${'$'}${usuario.obtenerSaldoPrincipal()}                                                        
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ************************************************************
     *                 MENU DE REPORTES                         *
@@ -172,7 +153,8 @@ object Utilidades {
     *                  2.- ULTIMOS MOVIMIENTOS                 *
     *                  3.- CATEGORIAS                          *
     *                  4.- ATRAS                               *
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""".trimIndent())
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    """.trimIndent())
 
     fun cerrarSistema() {
         println("GRACIAS POR USAR CASH MANAGER")
@@ -182,6 +164,7 @@ object Utilidades {
     }
 
     //Funcion para generar un ID unico para cuentas y movimientos
+    //#PROGRAMACION_FUNCIONAL
     fun generadorIDUnico(longitud: Int): String {
         val charPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return (1..longitud)

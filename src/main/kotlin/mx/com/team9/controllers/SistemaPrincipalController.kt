@@ -15,21 +15,12 @@ object SistemaPrincipalController {
             mostrarOpcionesPrincipal(usuario)
             var opcion = readln().toIntOrNull() ?: 0
             when (opcion) {
-                1 -> { // reportes  -> resumen mensual, ultimos movimientos, por categorias
-                    val contraladorReportes = ReportesController(usuario)
-                    contraladorReportes.seleccionarReporte()
+                1 -> MovimientosController.seleccionarMovimiento(usuario)
 
-                }
-
-                2 -> { // manejo de cuentas -> crear cuenta, editar cuenta, eliminar cuenta
-
-                }
                 // Manejo de cuentas -> consultar saldo, consultar movimientos, agregar cuenta, eliminar cuenta
                 2 -> CuentasController.manejoCuentas(usuario)
 
-                3 -> { // REPORTES
-                   println("REPORTES DE USUARIO")
-                }
+                3 -> ReportesController.seleccionarReporte(usuario)
 
                 4 -> { // DELOGUERASE
                     println("DESLOGUEANDO")
