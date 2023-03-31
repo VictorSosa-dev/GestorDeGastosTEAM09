@@ -71,6 +71,7 @@ Seleccionar una de las opciones del menú principal y seguir las instrucciones q
   - [linkendin](https://www.linkedin.com/in/victorsosa-dev/)
   
 -  [Kevin Gordillo](https://github.com/Kef131)
+    - [LinkedIn](https://www.linkedin.com/in/kef_gdl)
 
 -  [Emanuel River](https://github.com/gerhercar21)
    
@@ -79,7 +80,7 @@ Seleccionar una de las opciones del menú principal y seguir las instrucciones q
    - [linkendin](https://www.linkedin.com/in/cssmx/)   
 
 -  [Fernando Novales](https://github.com/ElMandu)
-  - [linkendin](https://www.linkedin.com/in/itzama/)
+    - [linkendin](https://www.linkedin.com/in/itzama/)
 
 
 Proyecto fase 2 del curso de Kotlin de BEDU en coloboración con Santander. Equipo 9.
