@@ -1,4 +1,4 @@
-package mx.com.team9.utils
+package mx.com.team9.models
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -26,6 +26,7 @@ enum class Categoria(val idCategoria: Int, val descripcion: String) {
     OTROS(18, "GASTOS DIVERSOS");
 
     companion object {
+        // USO DE COROUTINES PARA SIMULAR UNA CARGA DE CATEOGORIAS
         fun mostrarCategorias() = runBlocking{
             print("CARGANDO CATEGORIAS")
             for (i in 1..3) {

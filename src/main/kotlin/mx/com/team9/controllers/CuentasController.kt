@@ -90,7 +90,12 @@ object CuentasController {
             println("${index + 1}. ${cuenta.nombre}")
         }
         println("SELECCIONA UNA CUENTA: ")
-        val opcion = readln().toInt()
+        var opcion = readln().toIntOrNull() ?: -1
+        while (opcion !in 1.. usuario.listaCuentas.size) {
+            println("OPCION NO VALIDA !!!")
+            println("SELECCIONA UNA CUENTA: ")
+            opcion = readln().toIntOrNull() ?: 0
+        }
         cuenta = usuario?.listaCuentas?.get(opcion - 1)
         pedirDatosCuenta()
     }

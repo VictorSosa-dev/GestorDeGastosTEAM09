@@ -1,7 +1,7 @@
 package mx.com.team9.controllers
 
 import mx.com.team9.domain.*
-import mx.com.team9.utils.Categoria
+import mx.com.team9.models.Categoria
 import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.mostrarOpcionesMovimientos
 

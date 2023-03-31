@@ -1,10 +1,11 @@
 package mx.com.team9.controllers
 
 import mx.com.team9.domain.Cuenta
-import mx.com.team9.mocks.Mock
+import mx.com.team9.utils.Mock
 import mx.com.team9.utils.Utilidades.cerrarSistema
 import mx.com.team9.utils.Utilidades.limpiarPantalla
 import mx.com.team9.domain.Usuario
+import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.generadorIDUnico
 import mx.com.team9.utils.Utilidades.mostrarOpcionesAutenticar
 import java.util.*
@@ -16,6 +17,7 @@ object AutenticacionController {
 
     // Menu de autenticacion al sistema
     fun menuAutenticacion() {
+        Utilidades.inicioSistemaCashControlManager()
         do {
             mostrarOpcionesAutenticar()
             // evitar que el usuario ingrese un valor no numerico

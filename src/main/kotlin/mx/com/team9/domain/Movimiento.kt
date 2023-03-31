@@ -1,6 +1,6 @@
 package mx.com.team9.domain
 
-import mx.com.team9.utils.Categoria
+import mx.com.team9.models.Categoria
 import mx.com.team9.utils.Utilidades
 import java.time.LocalDateTime
 
@@ -35,14 +35,4 @@ abstract class Movimiento(
     // Funcion abstracta que actualiza el saldo de la cuenta ya sea para ingresos, gastos
     abstract fun actualizarSaldo(): Boolean
 
-    override fun toString(): String {
-        return "Movimiento(idMovimiento='$idMovimiento'\n, fecha=$fecha\n," +
-                " cuenta=$cuenta\n, monto=$monto\n, descripcion='$descripcion'\n," +
-                " categoria=$categoria\n)"
-    }
-
-    // Funcion que imprime en consola la transaccion realizada
-    fun logTransaccion() {
-        println("Se ha realizado una transaccion de $monto en la cuenta ${cuenta.idCuenta} con la categoria ${categoria.name}")
-    }
 }

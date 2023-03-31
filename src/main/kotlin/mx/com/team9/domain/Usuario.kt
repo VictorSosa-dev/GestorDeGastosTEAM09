@@ -63,7 +63,7 @@ class Usuario(
     fun obtenerUnaCuenta(tipoMovimiento: String): Cuenta {
         try { //Excepcion si no hay cuenta
             if (listaCuentas.size > 1) {
-                println("SELECIONA LA CUENTA EN LA QUE REGISTRAS TU $tipoMovimiento:")
+                println("SELECIONA LA CUENTA PARA TU $tipoMovimiento:")
                 listaCuentas?.forEachIndexed { index, cuenta ->
                     println("${index + 1}. ${cuenta.nombre}")
                 }
@@ -73,7 +73,7 @@ class Usuario(
                 while (opcionCuenta !in 1..listaCuentas.size) {
                     println("LA CUENTA NO ES VALIDA")
                     Utilidades.limpiarPantalla()
-                    println("SELECIONA LA CUENTA A LA QUE QUIERES REGISTRAR EN TU $tipoMovimiento:")
+                    println("SELECIONA LA CUENTA PARA TU $tipoMovimiento:")
                     listaCuentas.forEachIndexed { index, cuenta ->
                         println("${index + 1}. ${cuenta.idCuenta}")
                     }

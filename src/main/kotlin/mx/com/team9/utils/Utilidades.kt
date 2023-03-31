@@ -70,7 +70,6 @@ object Utilidades {
     }
 
     fun mostrarOpcionesAutenticar() {
-        inicioSistemaCashControlManager()
         println(
             """  
     ************************************************************

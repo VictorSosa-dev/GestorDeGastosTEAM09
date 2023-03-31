@@ -1,7 +1,7 @@
-package mx.com.team9.mocks
+package mx.com.team9.utils
 
 import mx.com.team9.domain.*
-import mx.com.team9.utils.Categoria
+import mx.com.team9.models.Categoria
 
 // Clase que simula una base de datos inicial de la app
 class Mock {
@@ -28,6 +28,9 @@ class Mock {
             listaMovimientos.add(Transferencia(this, refCuentaSec, 500.0, "TRANSFERENCIA DEUDA 2020", Categoria.OTROS))
             listaMovimientos.add(Transferencia(this, refCuentaSec, 1000.0, "TRANSFERENCIA PAGO RENTA", Categoria.HOGAR))
             listaMovimientos.add(Transferencia(refCuentaSec, this, 2000.0, "TRANSFERENCIA AHORROS", Categoria.HOGAR))
+            listaMovimientos.forEach {
+                (it as IMovimientoMock).actualizacionRapidaMock()
+            }
         }
         listaUsuarios.add(usuario1)
         listaUsuarios.add(usuario2)

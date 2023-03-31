@@ -1,6 +1,6 @@
 package mx.com.team9.domain
 
-import mx.com.team9.utils.Categoria
+import mx.com.team9.models.Categoria
 import java.time.LocalDateTime
 
 class Ingreso(
@@ -8,7 +8,7 @@ class Ingreso(
     monto: Double,
     descripcion: String,
     categoria: Categoria
-) : Movimiento(cuenta, monto, descripcion, categoria) {
+) : Movimiento(cuenta, monto, descripcion, categoria), IMovimientoMock {
 
     override val idMovimiento: String = "ING-${cuenta.idCuenta}-${LocalDateTime.now()}"
     override val fecha: LocalDateTime = LocalDateTime.now()
@@ -25,5 +25,10 @@ class Ingreso(
         cuenta.saldo += monto
         return true
     }
+
+    override fun actualizacionRapidaMock() {
+        cuenta.saldo += monto
+    }
+
 
 }
