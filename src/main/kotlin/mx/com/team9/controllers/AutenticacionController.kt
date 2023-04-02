@@ -1,14 +1,13 @@
 package mx.com.team9.controllers
 
 import mx.com.team9.domain.Cuenta
-import mx.com.team9.utils.Mock
-import mx.com.team9.utils.Utilidades.cerrarSistema
-import mx.com.team9.utils.Utilidades.limpiarPantalla
 import mx.com.team9.domain.Usuario
+import mx.com.team9.utils.Mock
 import mx.com.team9.utils.Utilidades
+import mx.com.team9.utils.Utilidades.cerrarSistema
 import mx.com.team9.utils.Utilidades.generadorIDUnico
+import mx.com.team9.utils.Utilidades.limpiarPantalla
 import mx.com.team9.utils.Utilidades.mostrarOpcionesAutenticar
-import java.util.*
 
 object AutenticacionController {
 
@@ -76,7 +75,7 @@ object AutenticacionController {
         println("INGRESA TU CONTRASEÑA:")
         val password = pedirContrasena()
         //  Creacion de usuario y cuenta default
-        val usuario = Usuario(UUID.randomUUID().toString(), nombreUsuario, email, password)
+        val usuario = Usuario(generadorIDUnico(6), nombreUsuario, email, password)
         crearCuentaPorDefecto(usuario)
         println("USUARIO REGISTRADO CON EXITO. PUEDES INICIAR SESION")
         Thread.sleep(1000)

@@ -1,6 +1,5 @@
 package mx.com.team9.utils
 
-import mx.com.team9.controllers.SistemaPrincipalController
 import mx.com.team9.domain.Usuario
 import kotlin.random.Random
 import kotlin.system.exitProcess

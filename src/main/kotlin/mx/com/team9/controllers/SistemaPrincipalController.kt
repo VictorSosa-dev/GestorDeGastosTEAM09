@@ -1,10 +1,8 @@
 package mx.com.team9.controllers
 
-import kotlinx.coroutines.delay
 import mx.com.team9.domain.Usuario
 import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.mostrarOpcionesPrincipal
-import java.lang.Thread.sleep
 
 object SistemaPrincipalController {
     lateinit var usuario: Usuario

@@ -2,8 +2,6 @@ package mx.com.team9.models
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import mx.com.team9.controllers.CuentasController
-import mx.com.team9.controllers.MovimientosController
 import mx.com.team9.domain.*
 import java.time.LocalDateTime
 import java.time.Month
@@ -87,7 +85,7 @@ class Reporte {
     }
 
     private fun obtenerTipoMovimiento(movimiento: Movimiento): String {
-        return when(movimiento) {
+        return when (movimiento) {
             is Ingreso -> return "INGRESO"
             is Gasto -> return "GASTO"
             is Transferencia -> return "TRANSFERENCIA"
@@ -214,7 +212,7 @@ class Reporte {
 
     // Funcion para traducir los meses del ingles al español
     //#PROGRAMACION_FUNCIONAL LAMBDA HOF
-    fun traducirMes(fechaActual: () -> Month): String {
+    inline fun traducirMes(fechaActual: () -> Month): String {
         //Funcion para traducir los meses del ingles al español
         val meses = mapOf(
             Month.JANUARY to "ENERO",

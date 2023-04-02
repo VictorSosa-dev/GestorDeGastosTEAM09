@@ -1,10 +1,7 @@
 package mx.com.team9.controllers
 
-import mx.com.team9.domain.Cuenta
-import mx.com.team9.domain.Gasto
 import mx.com.team9.domain.Usuario
 import mx.com.team9.models.Reporte
-import mx.com.team9.utils.Utilidades
 import mx.com.team9.utils.Utilidades.mostrarMenuReportes
 
 object ReportesController {
