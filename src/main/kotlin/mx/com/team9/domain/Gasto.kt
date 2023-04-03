@@ -17,7 +17,6 @@ class Gasto(
     override val idMovimiento: String = "GAST-${cuenta.idCuenta}-${LocalDateTime.now()}"
     override val fecha: LocalDateTime = LocalDateTime.now()
 
-    //Esta funcion puede ser una corutina TODO: POSIBLE IMPLEMENTACION CORUTINA
     override fun actualizarSaldo(): Boolean {
         println("INICIANDO TRANSACCION")
         println("CONECTANDO CON CUENTA ${cuenta.nombre}")
